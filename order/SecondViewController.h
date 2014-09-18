@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface SecondViewController : UIViewController
-
+<UITableViewDelegate, UITableViewDataSource>
+{
+     UIScrollView *scrollView;
+}
 @end

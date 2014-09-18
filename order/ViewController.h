@@ -12,7 +12,7 @@
 <UITableViewDelegate, UITableViewDataSource>
 {
 //    UIBarButtonItem *myButton;
-    UITableView *mTableView;
+    
 }
 //@property (nonatomic, retain) NSArray *myButton;
 

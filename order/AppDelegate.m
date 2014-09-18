@@ -17,7 +17,6 @@
     ViewController *viewController = [[ViewController alloc]init];
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController = navigationController;
-//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     // Override point for customization after application launch.
     return YES;
 }

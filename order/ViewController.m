@@ -31,6 +31,7 @@
     button.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:button];
+    [button addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     CGRect frame2 = CGRectMake(10, 60, 300, 50);
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button2.frame = frame2;
@@ -41,6 +42,7 @@
     [self.view addSubview:button2];
     
 }
+    
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -56,10 +58,9 @@
 
 #pragma mark -
 #pragma mark Table View Delegate Methods
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)onClick:(id)sender{
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
   }
 
         
