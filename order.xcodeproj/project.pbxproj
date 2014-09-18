@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E519CACC2100B24786 /* peopleViewController.m */; };
+		9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E819CAD3F700B24786 /* resViewController.m */; };
+		9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1EB19CAD59000B24786 /* comboViewController.m */; };
 		9A97A18419C9B3050028A373 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18319C9B3050028A373 /* UIKit.framework */; };
 		9A97A18619C9B3050028A373 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18519C9B3050028A373 /* Foundation.framework */; };
 		9A97A18819C9B3050028A373 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18719C9B3050028A373 /* CoreGraphics.framework */; };
@@ -22,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A48F1E419CACC2100B24786 /* peopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = peopleViewController.h; sourceTree = "<group>"; };
+		9A48F1E519CACC2100B24786 /* peopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = peopleViewController.m; sourceTree = "<group>"; };
+		9A48F1E719CAD3F700B24786 /* resViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resViewController.h; sourceTree = "<group>"; };
+		9A48F1E819CAD3F700B24786 /* resViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resViewController.m; sourceTree = "<group>"; };
+		9A48F1EA19CAD59000B24786 /* comboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comboViewController.h; sourceTree = "<group>"; };
+		9A48F1EB19CAD59000B24786 /* comboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comboViewController.m; sourceTree = "<group>"; };
 		9A97A18019C9B3050028A373 /* order.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = order.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A97A18319C9B3050028A373 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A97A18519C9B3050028A373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +103,12 @@
 				9A97A18A19C9B3050028A373 /* Supporting Files */,
 				9A97A1A619C9D0C30028A373 /* SecondViewController.h */,
 				9A97A1A719C9D0C30028A373 /* SecondViewController.m */,
+				9A48F1E419CACC2100B24786 /* peopleViewController.h */,
+				9A48F1E519CACC2100B24786 /* peopleViewController.m */,
+				9A48F1E719CAD3F700B24786 /* resViewController.h */,
+				9A48F1E819CAD3F700B24786 /* resViewController.m */,
+				9A48F1EA19CAD59000B24786 /* comboViewController.h */,
+				9A48F1EB19CAD59000B24786 /* comboViewController.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -182,6 +197,9 @@
 				9A97A19419C9B3050028A373 /* AppDelegate.m in Sources */,
 				9A97A1A019C9B3050028A373 /* ViewController.m in Sources */,
 				9A97A1A819C9D0C30028A373 /* SecondViewController.m in Sources */,
+				9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */,
+				9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */,
+				9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +322,7 @@
 				9A97A1A519C9B3050028A373 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

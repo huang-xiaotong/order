@@ -7,6 +7,9 @@
 //
 
 #import "SecondViewController.h"
+#import "peopleViewController.h"
+#import "resViewController.h"
+#import "comboViewController.h"
 @interface SecondViewController ()
 
 @end
@@ -18,7 +21,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
-    scrollView.contentSize = CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 2);
+    scrollView.contentSize = CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2);
 //    scrollView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0);
     scrollView.directionalLockEnabled = YES;
     [self.view addSubview:scrollView];
@@ -45,6 +48,7 @@
     button.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [scrollView addSubview:button];
+    [button addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     //label 餐厅
     CGRect label3Rect = CGRectMake(15, 160, 40, 20);
     UILabel *label3 = [[UILabel alloc] initWithFrame:label3Rect];
@@ -66,6 +70,7 @@
     button2.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [scrollView addSubview:button2];
+    [button2 addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
     //label 套餐
     CGRect label5Rect = CGRectMake(15, 310, 40, 20);
     UILabel *label5 = [[UILabel alloc] initWithFrame:label5Rect];
@@ -87,9 +92,33 @@
     button3.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     [button3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [scrollView addSubview:button3];
+    [button3 addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    //button 确定
+    CGRect frame4 = CGRectMake(20, 440, 280, 50);
+    UIButton *button4 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button4.frame = frame4;
+    [button4 setTitle:@"确定"forState:UIControlStateNormal];
+    button4.backgroundColor = [UIColor clearColor];
+    button4.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [button4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [scrollView addSubview:button4];
+    [button4 addTarget:self action:@selector(on:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 }
+- (void)onClick:(id)sender{
+    peopleViewController *nextController = [[peopleViewController alloc]init];
+    [self.navigationController pushViewController:nextController animated:YES];
+}
+- (void)Click:(id)sender{
+    resViewController *nextController = [[resViewController alloc]init];
+    [self.navigationController pushViewController:nextController animated:YES];}
+- (void)press:(id)sender{
+    comboViewController *nextController = [[comboViewController alloc]init];
+    [self.navigationController pushViewController:nextController animated:YES];}
+- (void)on:(id)sender{
+
+    }
 @end
