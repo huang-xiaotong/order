@@ -14,5 +14,6 @@
 //    UIBarButtonItem *myButton;
     UITableView *mTableView;
 }
-@property (nonatomic, retain) NSArray *myButton;
+//@property (nonatomic, retain) NSArray *myButton;
+
 @end

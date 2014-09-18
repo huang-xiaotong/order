@@ -22,12 +22,24 @@
     self.title = @"订餐";
     self.navigationController.navigationBar.barStyle =
     UIBarStyleBlackOpaque;
-    mTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height) style:UITableViewStylePlain];
-    [self.view addSubview:mTableView];
-//    mTableView.delegate = self;
-//    mTableView.dataSource = self;
+    self.view.backgroundColor = [UIColor whiteColor];
+    CGRect frame = CGRectMake(10, 10, 300, 50);
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = frame;
+    [button setTitle:@"帮订餐"forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor clearColor];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:button];
+    CGRect frame2 = CGRectMake(10, 60, 300, 50);
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button2.frame = frame2;
+    [button2 setTitle:@"看订单"forState:UIControlStateNormal];
+    button2.backgroundColor = [UIColor clearColor];
+    button2.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:button2];
     
-	// Do any additional setup after loading the view, typically from a nib.
 }
 - (void)didReceiveMemoryWarning
 {
@@ -40,30 +52,6 @@
 #pragma mark Table View Data Source Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        if(indexPath.row == 0){
-
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(50,30,50,20);
-        [button setTitle:@"帮订餐" forState:UIControlStateNormal];
-        button.backgroundColor = [UIColor grayColor];
-        cell.accessoryView = button;
-        }
-//        if(indexPath.row == 0){
-//            cell.textLabel.text = @"帮订餐";
-//        }
-//        NSUInteger row = [indexPath row];
-    }
-//    NSUInteger row = [indexPath row];
-//    if(indexPath.row == 0){
-            cell.textLabel.text = @"帮订餐";
-//    }
-    return cell;
 }
 
 #pragma mark -
