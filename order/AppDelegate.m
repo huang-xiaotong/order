@@ -17,6 +17,7 @@
     ViewController *viewController = [[ViewController alloc]init];
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController = navigationController;
+   
     // Override point for customization after application launch.
     return YES;
 }

@@ -28,7 +28,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订单显示";
-    DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 420)];
+    DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 330)];
     [DataTable setDelegate:self];
     [DataTable setDataSource:self];
     [self.view addSubview:DataTable];

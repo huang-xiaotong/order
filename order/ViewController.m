@@ -62,6 +62,7 @@
 - (void)onClick:(id)sender{
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
+    
   }
 - (void)Click:(id)sender{
     ordViewController *nextController = [[ordViewController alloc]init];

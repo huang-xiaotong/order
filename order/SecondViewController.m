@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"订餐";
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
     scrollView.contentSize = CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2);
 //    scrollView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0);
@@ -41,7 +42,7 @@
     UILabel *label2 = [[UILabel alloc] initWithFrame:label2Rect];
     label2.font = [UIFont boldSystemFontOfSize:16];
     label2.backgroundColor = [UIColor lightGrayColor];
-//    label2.text = ;
+//    label2.text = data;
     label2.textColor = [UIColor redColor];
     [scrollView addSubview:label2];
     //button 选人
@@ -120,10 +121,12 @@
 }
 - (void)Click:(id)sender{
     resViewController *nextController = [[resViewController alloc]init];
-    [self.navigationController pushViewController:nextController animated:YES];}
+    [self.navigationController pushViewController:nextController animated:YES];
+}
 - (void)press:(id)sender{
     comboViewController *nextController = [[comboViewController alloc]init];
-    [self.navigationController pushViewController:nextController animated:YES];}
+    [self.navigationController pushViewController:nextController animated:YES];
+}
 - (void)on:(id)sender{
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
@@ -131,6 +134,5 @@
 -(void)oneObjectHandleInfo:(NSNotification *)notification{
     NSString *data = [notification object];
     NSLog(@">>2>> %@",data);
-    
 }
 @end
