@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ordViewController : UIViewController
-
+<UITableViewDelegate, UITableViewDataSource>
+{
+    UITableView *DataTable;
+}
 @end
