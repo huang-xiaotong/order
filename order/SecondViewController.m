@@ -27,6 +27,9 @@
     [self.view addSubview:scrollView];
     scrollView.delegate = self;
     scrollView.delaysContentTouches=YES;
+    //nsnotification 
+    NSNotificationCenter *center2 = [NSNotificationCenter defaultCenter];//取得NSNotification对象
+    [center2 addObserver:self selector:@selector(oneObjectHandleInfo:) name:@"logInfo" object:nil];//注册自己为监听者，当有消息过来
     //label人
     CGRect labelRect = CGRectMake(15, 15, 30, 20);
     UILabel *label = [[UILabel alloc] initWithFrame:labelRect];
@@ -38,6 +41,8 @@
     UILabel *label2 = [[UILabel alloc] initWithFrame:label2Rect];
     label2.font = [UIFont boldSystemFontOfSize:16];
     label2.backgroundColor = [UIColor lightGrayColor];
+//    label2.text = ;
+    label2.textColor = [UIColor redColor];
     [scrollView addSubview:label2];
     //button 选人
     CGRect frame = CGRectMake(20, 90, 280, 50);
@@ -105,6 +110,7 @@
     [button4 addTarget:self action:@selector(on:) forControlEvents:UIControlEventTouchUpInside];
     
 }
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 }
@@ -119,6 +125,12 @@
     comboViewController *nextController = [[comboViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];}
 - (void)on:(id)sender{
-
+    SecondViewController *nextController = [[SecondViewController alloc]init];
+    [self.navigationController pushViewController:nextController animated:YES];
     }
+-(void)oneObjectHandleInfo:(NSNotification *)notification{
+    NSString *data = [notification object];
+    NSLog(@">>2>> %@",data);
+    
+}
 @end

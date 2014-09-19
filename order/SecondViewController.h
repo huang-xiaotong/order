@@ -12,5 +12,6 @@
 <UITableViewDelegate, UITableViewDataSource>
 {
      UIScrollView *scrollView;
+//    NSString *data;
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SecondViewController.h"
+#import "ordViewController.h"
 
 @interface ViewController ()
 
@@ -40,7 +41,7 @@
     button2.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:button2];
-    
+    [button2 addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
 }
     
 - (void)didReceiveMemoryWarning
@@ -62,6 +63,10 @@
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
   }
+- (void)Click:(id)sender{
+    ordViewController *nextController = [[ordViewController alloc]init];
+    [self.navigationController pushViewController:nextController animated:YES];
+}
 
-        
+
 @end

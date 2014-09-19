@@ -28,6 +28,10 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    //定义nsnotification 
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(GetInfo:) name:@"logInfo" object:nil];//注册自己为监听者observer
+    [center postNotificationName:@"logInfo" object:@"李四"];//注册自己为发送者并发送信息
     //button 赵大
     CGRect frame = CGRectMake(0, 20, 320, 50);
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -94,6 +98,10 @@
 - (void)onClick:(id)sender{
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
-    
+}
+-(void) GetInfo:(NSNotification *) notificaion{
+    //取得接受数据并打印
+    NSString *data = [notificaion object];
+        NSLog(@">> %@",data);
 }
 @end

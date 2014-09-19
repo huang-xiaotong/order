@@ -36,7 +36,7 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-    CGRect frame2 = CGRectMake(20, 240, 280, 50);
+    CGRect frame2 = CGRectMake(0, 70, 320, 50);
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button2.frame = frame2;
     [button2 setTitle:@"7-11"forState:UIControlStateNormal];
@@ -44,7 +44,7 @@
     button2.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:button2];
-    CGRect frame3 = CGRectMake(20, 390, 280, 50);
+    CGRect frame3 = CGRectMake(0, 120, 320, 50);
     UIButton *button3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button3.frame = frame3;
     [button3 setTitle:@"成都小吃"forState:UIControlStateNormal];

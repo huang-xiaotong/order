@@ -10,6 +10,7 @@
 		9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E519CACC2100B24786 /* peopleViewController.m */; };
 		9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E819CAD3F700B24786 /* resViewController.m */; };
 		9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1EB19CAD59000B24786 /* comboViewController.m */; };
+		9A48F1EF19CAE07C00B24786 /* ordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1EE19CAE07B00B24786 /* ordViewController.m */; };
 		9A97A18419C9B3050028A373 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18319C9B3050028A373 /* UIKit.framework */; };
 		9A97A18619C9B3050028A373 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18519C9B3050028A373 /* Foundation.framework */; };
 		9A97A18819C9B3050028A373 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18719C9B3050028A373 /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 		9A48F1E819CAD3F700B24786 /* resViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resViewController.m; sourceTree = "<group>"; };
 		9A48F1EA19CAD59000B24786 /* comboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comboViewController.h; sourceTree = "<group>"; };
 		9A48F1EB19CAD59000B24786 /* comboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comboViewController.m; sourceTree = "<group>"; };
+		9A48F1ED19CAE07B00B24786 /* ordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ordViewController.h; sourceTree = "<group>"; };
+		9A48F1EE19CAE07B00B24786 /* ordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ordViewController.m; sourceTree = "<group>"; };
 		9A97A18019C9B3050028A373 /* order.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = order.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A97A18319C9B3050028A373 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A97A18519C9B3050028A373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,8 @@
 				9A48F1E819CAD3F700B24786 /* resViewController.m */,
 				9A48F1EA19CAD59000B24786 /* comboViewController.h */,
 				9A48F1EB19CAD59000B24786 /* comboViewController.m */,
+				9A48F1ED19CAE07B00B24786 /* ordViewController.h */,
+				9A48F1EE19CAE07B00B24786 /* ordViewController.m */,
 			);
 			path = order;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */,
 				9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */,
 				9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */,
+				9A48F1EF19CAE07C00B24786 /* ordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
