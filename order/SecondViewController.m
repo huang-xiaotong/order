@@ -16,6 +16,7 @@
 
 
 @implementation SecondViewController
+//@synthesize label2;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,7 +43,8 @@
     UILabel *label2 = [[UILabel alloc] initWithFrame:label2Rect];
     label2.font = [UIFont boldSystemFontOfSize:16];
     label2.backgroundColor = [UIColor lightGrayColor];
-//    label2.text = data;
+//    label2.text =data.name;
+
     label2.textColor = [UIColor redColor];
     [scrollView addSubview:label2];
     //button 选人
@@ -117,22 +119,31 @@
 }
 - (void)onClick:(id)sender{
     peopleViewController *nextController = [[peopleViewController alloc]init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];
 }
 - (void)Click:(id)sender{
     resViewController *nextController = [[resViewController alloc]init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];
 }
 - (void)press:(id)sender{
     comboViewController *nextController = [[comboViewController alloc]init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];
 }
 - (void)on:(id)sender{
     SecondViewController *nextController = [[SecondViewController alloc]init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];
     }
 -(void)oneObjectHandleInfo:(NSNotification *)notification{
     NSString *data = [notification object];
     NSLog(@">>2>> %@",data);
+//    label2.text = data;
 }
 @end

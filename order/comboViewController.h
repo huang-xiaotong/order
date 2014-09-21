@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface comboViewController : UIViewController
-
+<UITableViewDelegate, UITableViewDataSource>
+{
+    UITableView *TableView;
+    NSArray *listData;
+    NSArray *listDatap;
+}
+@property (nonatomic, retain) NSArray *listData;
+@property (nonatomic, retain) NSArray *listDatap;
 @end

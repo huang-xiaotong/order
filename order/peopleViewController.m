@@ -29,10 +29,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     //定义nsnotification 
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(GetInfo:) name:@"logInfo" object:nil];//注册自己为监听者observer
-    [center removeObserver:self];
-    [center postNotificationName:@"logInfo" object:@"李四"];//注册自己为发送者并发送信息
+    
     //button 赵大
     CGRect frame = CGRectMake(0, 20, 320, 50);
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -96,7 +93,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)onClick:(id)sender{
+- (void)onClick:(id)sender
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(GetInfo:) name:@"logInfo" object:nil];//注册自己为监听者observer
+    //    [center removeObserver:self];
+    [center postNotificationName:@"logInfo" object:@"李四"];//注册自己为发送者并发送信息
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
 }
