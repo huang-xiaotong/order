@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface peopleViewController : UIViewController
-
+<UITableViewDelegate, UITableViewDataSource>
+{
+    UITableView *pTableView;
+    NSArray *listDatap;
+}
+@property (nonatomic, retain) NSArray *listDatap;
 @end

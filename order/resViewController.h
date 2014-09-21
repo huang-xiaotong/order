@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface resViewController : UIViewController
-
+<UITableViewDataSource, UITableViewDelegate>
+{
+    UITableView *rTableView;
+    NSArray *listDatar;
+}
+@property (nonatomic, retain) NSArray *listDatar;
 @end

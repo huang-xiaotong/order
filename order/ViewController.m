@@ -62,7 +62,7 @@
 - (void)onClick:(id)sender{
     SecondViewController *nextController = [[SecondViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    [self.navigationItem setBackBarButtonItem:backItem];
+    [self.navigationItem setBackBarButtonItem:backItem]; 
     [self.navigationController pushViewController:nextController animated:YES];
     
   }
