@@ -66,6 +66,9 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger row = [indexPath row];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:@"resInfo" object:[listDatar objectAtIndex:row]];//注册自己为发送者并发送信息
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

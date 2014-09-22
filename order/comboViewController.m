@@ -74,6 +74,9 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger row = [indexPath row];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:@"comInfo" object:[listData objectAtIndex:row]];
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

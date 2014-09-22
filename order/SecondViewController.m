@@ -24,14 +24,15 @@
     self.title = @"订餐";
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
     scrollView.contentSize = CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2);
-//    scrollView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0);
     scrollView.directionalLockEnabled = YES;
     [self.view addSubview:scrollView];
     scrollView.delegate = self;
     scrollView.delaysContentTouches=YES;
     //nsnotification 
-    NSNotificationCenter *center2 = [NSNotificationCenter defaultCenter];//取得NSNotification对象
-    [center2 addObserver:self selector:@selector(oneObjectHandleInfo:) name:@"logInfo" object:nil];//注册自己为监听者，当有消息过来
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];//取得NSNotification对象
+    [center addObserver:self selector:@selector(peoHandleInfo:) name:@"logInfo" object:nil];//注册自己为监听者，当有消息过来
+    [center addObserver:self selector:@selector(resHandleInfo:) name:@"resInfo" object:nil];
+    [center addObserver:self selector:@selector(comHandleInfo:) name:@"comInfo" object:nil];
     //label人
     CGRect labelRect = CGRectMake(15, 15, 30, 20);
     UILabel *label = [[UILabel alloc] initWithFrame:labelRect];
@@ -42,10 +43,9 @@
     CGRect label2Rect = CGRectMake(20, 40, 280, 40);
     label2 = [[UILabel alloc] initWithFrame:label2Rect];
     label2.font = [UIFont boldSystemFontOfSize:16];
-    label2.text = @"hhh";
-    
-//    label2.backgroundColor = [UIColor lightGrayColor];
-    
+    label2.enabled = YES;
+    label2.text = data;
+    label2.backgroundColor = [UIColor lightGrayColor];
     label2.textColor = [UIColor redColor];
     [scrollView addSubview:label2];
 
@@ -67,7 +67,7 @@
     [scrollView addSubview:label3];
     //label 空白 餐厅
     CGRect label4Rect = CGRectMake(20, 190, 280, 40);
-    UILabel *label4 = [[UILabel alloc] initWithFrame:label4Rect];
+    label4 = [[UILabel alloc] initWithFrame:label4Rect];
     label4.font = [UIFont boldSystemFontOfSize:16];
     label4.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:label4];
@@ -89,7 +89,7 @@
     [scrollView addSubview:label5];
     //label 空白 套餐
     CGRect label6Rect = CGRectMake(20, 340, 280, 40);
-    UILabel *label6 = [[UILabel alloc] initWithFrame:label6Rect];
+    label6 = [[UILabel alloc] initWithFrame:label6Rect];
     label6.font = [UIFont boldSystemFontOfSize:16];
     label6.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:label6];
@@ -113,12 +113,12 @@
     [button4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [scrollView addSubview:button4];
     [button4 addTarget:self action:@selector(on:) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 }
+
 - (void)onClick:(id)sender{
     peopleViewController *nextController = [[peopleViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
@@ -143,13 +143,19 @@
     [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];
     }
--(void)oneObjectHandleInfo:(NSNotification *)notification{
-    NSString *data = [notification object];
-//    label2.userInteractionEnabled = YES;
-//    [label2 setText:data];
-//    [self performSelectorOnMainThread:@selector(fixLabel2Text:) withObject:data waitUntilDone:NO];
+-(void)peoHandleInfo:(NSNotification *)notification{
+    data = [notification object];
     label2.text = data;
-    NSLog(@"%@",label2.text);
-    NSLog(@">>2>> %@",data);
+//    NSLog(@"%@",label2.text);
+//    NSLog(@">>2>> %@",data);
+}
+-(void)resHandleInfo:(NSNotification *)notification{
+    NSString *datar = [notification object];
+    label4.text = datar;
+    NSLog(@" %@", datar);
+}
+-(void)comHandleInfo:(NSNotification *)notification{
+    NSString *datac = [notification object];
+    label6.text = datac;
 }
 @end
