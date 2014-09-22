@@ -12,5 +12,6 @@
 <UITableViewDelegate, UITableViewDataSource>
 {
      UIScrollView *scrollView;
+    UILabel *label2;
 }
 @end

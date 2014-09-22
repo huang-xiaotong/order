@@ -16,7 +16,7 @@
 
 
 @implementation SecondViewController
-//@synthesize label2;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -40,13 +40,15 @@
     [scrollView addSubview:label];
     //label 空白 人
     CGRect label2Rect = CGRectMake(20, 40, 280, 40);
-    UILabel *label2 = [[UILabel alloc] initWithFrame:label2Rect];
+    label2 = [[UILabel alloc] initWithFrame:label2Rect];
     label2.font = [UIFont boldSystemFontOfSize:16];
-    label2.backgroundColor = [UIColor lightGrayColor];
-//    label2.text =data.name;
-
+    label2.text = @"hhh";
+    
+//    label2.backgroundColor = [UIColor lightGrayColor];
+    
     label2.textColor = [UIColor redColor];
     [scrollView addSubview:label2];
+
     //button 选人
     CGRect frame = CGRectMake(20, 90, 280, 50);
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -143,7 +145,11 @@
     }
 -(void)oneObjectHandleInfo:(NSNotification *)notification{
     NSString *data = [notification object];
+//    label2.userInteractionEnabled = YES;
+//    [label2 setText:data];
+//    [self performSelectorOnMainThread:@selector(fixLabel2Text:) withObject:data waitUntilDone:NO];
+    label2.text = data;
+    NSLog(@"%@",label2.text);
     NSLog(@">>2>> %@",data);
-//    label2.text = data;
 }
 @end

@@ -33,8 +33,15 @@
     [self.view addSubview:pTableView];
     pTableView.delegate = self;
     pTableView.dataSource = self;
-    NSArray *array = [[NSArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
-    self.listDatap = array;
+//    NSArray *array = [[NSArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
+//    self.listDatap = array;
+    NSDictionary * dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"赵大", @"name1", @"钱二", @"name2", @"张三", @"name3", @"李四", @"name4", @"王五", @"name5", @"赵六", @"name6", nil];
+//    NSLog(@" %@", dict);
+    NSArray *values = [dict allValues];
+    self.listDatap = values;
+//    NSLog(@" %@", listDatap);
+    
+
 	// Do any additional setup after loading the view.
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,15 +71,14 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger row = [indexPath row];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(GetInfo:) name:@"logInfo" object:nil];//注册自己为监听者observer
     //    [center removeObserver:self];
-    [center postNotificationName:@"logInfo" object:nil];//注册自己为发送者并发送信息
-
+    [center postNotificationName:@"logInfo" object:[listDatap objectAtIndex:row]];//注册自己为发送者并发送信息
     SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
 -(void) GetInfo:(NSNotification *) notificaion{
     //取得接受数据并打印
