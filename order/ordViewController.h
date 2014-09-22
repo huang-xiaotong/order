@@ -12,5 +12,10 @@
 <UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *DataTable;
+    NSString *datac;
+    NSString *datap;
+    NSString *datar;
+    UITableViewCell *cell;
+    UILabel *label;
 }
 @end

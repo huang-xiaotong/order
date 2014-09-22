@@ -46,9 +46,7 @@
     label2.enabled = YES;
     label2.text = data;
     label2.backgroundColor = [UIColor lightGrayColor];
-    label2.textColor = [UIColor redColor];
     [scrollView addSubview:label2];
-
     //button 选人
     CGRect frame = CGRectMake(20, 90, 280, 50);
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -152,7 +150,7 @@
 -(void)resHandleInfo:(NSNotification *)notification{
     NSString *datar = [notification object];
     label4.text = datar;
-    NSLog(@" %@", datar);
+//    NSLog(@" %@", datar);
 }
 -(void)comHandleInfo:(NSNotification *)notification{
     NSString *datac = [notification object];

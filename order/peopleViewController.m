@@ -76,9 +76,10 @@
 //    [center addObserver:self selector:@selector(GetInfo:) name:@"logInfo" object:nil];//注册自己为监听者observer
     //    [center removeObserver:self];
     [center postNotificationName:@"logInfo" object:[listDatap objectAtIndex:row]];//注册自己为发送者并发送信息
-    SecondViewController *nextController = [[SecondViewController alloc]init];
-    [self.navigationController pushViewController:nextController animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    SecondViewController *nextController = [[SecondViewController alloc]init];
+//    [self.navigationController pushViewController:nextController animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //-(void) GetInfo:(NSNotification *) notificaion{
     //取得接受数据并打印

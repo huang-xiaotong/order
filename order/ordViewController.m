@@ -7,6 +7,7 @@
 //
 
 #import "ordViewController.h"
+#import "peopleViewController.h"
 
 @interface ordViewController ()
 
@@ -32,6 +33,11 @@
     [DataTable setDelegate:self];
     [DataTable setDataSource:self];
     [self.view addSubview:DataTable];
+    
+    NSNotificationCenter *center2 = [NSNotificationCenter defaultCenter];//取得NSNotification对象
+    [center2 addObserver:self selector:@selector(peoHandleInfo:) name:@"logInfo" object:nil];//注册自己为监听者，当有消息过来
+    [center2 addObserver:self selector:@selector(resHandleInfo:) name:@"resInfo" object:nil];
+    [center2 addObserver:self selector:@selector(comHandleInfo:) name:@"comInfo" object:nil];
 
 	// Do any additional setup after loading the view.
 }
@@ -62,12 +68,30 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *cellIdentifier = @"cell";
-UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+   cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 if (cell == nil){
     cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    CGRect labelRect = CGRectMake(250, 10, 130, 20);
+    label = [[UILabel alloc]initWithFrame:labelRect];
+    [cell.contentView addSubview:label];
+    label.font = [UIFont boldSystemFontOfSize:16];
 }
     return cell;
 }
-
+-(void)peoHandleInfo:(NSNotification *)notification{
+    datap = [notification object];
+    cell.textLabel.text = datap;
+    NSLog(@" %@",cell.textLabel.text);
+}
+-(void)resHandleInfo:(NSNotification *)notification{
+    datar = [notification object];
+    cell.detailTextLabel.text = datar;
+    NSLog(@" %@",datar);
+}
+-(void)comHandleInfo:(NSNotification *)notification{
+    datac = [notification object];
+    label.text = datac;
+    NSLog(@" %@", datac);
+}
 
 @end
