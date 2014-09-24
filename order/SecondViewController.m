@@ -136,10 +136,11 @@
     [self.navigationController pushViewController:nextController animated:YES];
 }
 - (void)on:(id)sender{
-    SecondViewController *nextController = [[SecondViewController alloc]init];
+//    SecondViewController *nextController = [[SecondViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backItem];
-    [self.navigationController pushViewController:nextController animated:YES];
+//    [self.navigationController pushViewController:nextController animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
     }
 -(void)peoHandleInfo:(NSNotification *)notification{
     data = [notification object];
