@@ -60,9 +60,9 @@
 #pragma mark -
 #pragma mark Table View Delegate Methods
 - (void)onClick:(id)sender{
-    SecondViewController *nextController = [[SecondViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    [self.navigationItem setBackBarButtonItem:backItem]; 
+    [self.navigationItem setBackBarButtonItem:backItem];
+    SecondViewController *nextController = [[SecondViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
 //    [self.navigationController popViewControllerAnimated:YES];
     

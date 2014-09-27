@@ -10,6 +10,7 @@
 #import "peopleViewController.h"
 #import "resViewController.h"
 #import "comboViewController.h"
+#import "ordViewController.h"
 @interface SecondViewController ()
 
 @end
@@ -136,11 +137,22 @@
     [self.navigationController pushViewController:nextController animated:YES];
 }
 - (void)on:(id)sender{
-//    SecondViewController *nextController = [[SecondViewController alloc]init];
+    SecondViewController *nextController = [[SecondViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backItem];
-//    [self.navigationController pushViewController:nextController animated:YES];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController pushViewController:nextController animated:YES];
+    
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  
+    NSString *path=[paths objectAtIndex:0];
+//    NSLog(@"path = %@",path);
+    NSString *filename=[path stringByAppendingPathComponent:@"test.plist"];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    [fm createFileAtPath:filename contents:nil attributes:nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:label2.text,@"1",label4.text,@"2",label6.text,@"3", nil];
+    [dic writeToFile:filename atomically:YES];
+//    NSLog(@" %@",dic);
+    
+    
     }
 -(void)peoHandleInfo:(NSNotification *)notification{
     data = [notification object];

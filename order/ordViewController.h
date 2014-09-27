@@ -18,5 +18,6 @@
     UITableViewCell *cell;
     UILabel *label;
     UILabel *label2;
+    NSDictionary *dic2;
 }
 @end
