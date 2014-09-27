@@ -14,6 +14,7 @@
 @end
 
 @implementation ordViewController
+@synthesize listDatap;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,13 +35,17 @@
     [DataTable setDataSource:self];
     [self.view addSubview:DataTable];
     
+    
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString *path=[paths objectAtIndex:0];
 //    NSLog(@" %@",path);
     NSString *file=[path stringByAppendingPathComponent:@"test.plist"];
     dic2 = [NSDictionary dictionaryWithContentsOfFile:file];
 //    NSLog(@" %@",dic2);
-	// Do any additional setup after loading the view.
+	array = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
+    [array removeObject:[dic2 valueForKey:@"1"]];
+    self.listDatap = array;
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0f;
@@ -59,8 +64,22 @@
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
-    return 5;
+//    switch (section) {
+//            
+//        case 0:
+//            
+//            return  1;
+//            
+//        case 1:
+//            
+//            return  5;
+    if (section == 0) {
+        return 1;
+    }
+    if (section == 1) {
+        return 5;
+    }
+    return 0;
 }
 //每个section显示的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -108,6 +127,13 @@ if (cell == nil){
         label4.text = [dic2 valueForKey:@"4"];
     }
     }
+        else
+            {
+                NSUInteger row = [indexPath row];
+                label1.text = [listDatap objectAtIndex:row];
+            }
+            
+    
     return cell;
 }
 

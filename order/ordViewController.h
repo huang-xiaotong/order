@@ -22,5 +22,8 @@
     UILabel *label4;
     UILabel *label1;
     UILabel *label3;
+    NSArray *listDatap;
+    NSMutableArray *array;
 }
+@property (nonatomic, retain) NSArray *listDatap;
 @end
