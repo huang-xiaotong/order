@@ -64,20 +64,11 @@
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    switch (section) {
-//            
-//        case 0:
-//            
-//            return  1;
-//            
-//        case 1:
-//            
-//            return  5;
     if (section == 0) {
-        return 1;
+        return 2;
     }
     if (section == 1) {
-        return 5;
+        return 4;
     }
     return 0;
 }
@@ -119,12 +110,18 @@ if (cell == nil){
 }
     if(indexPath.section == 0)
     {
-    if(indexPath.row == 0)
-    {
-        label1.text = [dic2 valueForKey:@"1"];
-        label2.text = [dic2 valueForKey:@"2"];
-        label3.text = [dic2 valueForKey:@"3"];
-        label4.text = [dic2 valueForKey:@"4"];
+//    if(indexPath.row == 0)
+        int i;
+        for(i=1; i < 7; i++)
+        {
+            if ([label1.text length] == 0) {
+                i = indexPath.row;
+                label1.text = [dic2 valueForKey:@"1"];
+                label2.text = [dic2 valueForKey:@"2"];
+                label3.text = [dic2 valueForKey:@"3"];
+                label4.text = [dic2 valueForKey:@"4"];
+            }
+            break;
     }
     }
         else
@@ -132,9 +129,6 @@ if (cell == nil){
                 NSUInteger row = [indexPath row];
                 label1.text = [listDatap objectAtIndex:row];
             }
-            
-    
     return cell;
 }
-
 @end
