@@ -34,6 +34,7 @@
     [center addObserver:self selector:@selector(peoHandleInfo:) name:@"logInfo" object:nil];//注册自己为监听者，当有消息过来
     [center addObserver:self selector:@selector(resHandleInfo:) name:@"resInfo" object:nil];
     [center addObserver:self selector:@selector(comHandleInfo:) name:@"comInfo" object:nil];
+    [center addObserver:self selector:@selector(comboHandleInfo:) name:@"comboInfo" object:nil];
     //label人
     CGRect labelRect = CGRectMake(15, 15, 30, 20);
     UILabel *label = [[UILabel alloc] initWithFrame:labelRect];
@@ -92,6 +93,9 @@
     label6.font = [UIFont boldSystemFontOfSize:16];
     label6.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:label6];
+    //label7 空白 价格
+    CGRect label7Rect = CGRectMake(20, 340, 280, 40);
+    label7 = [[UILabel alloc]initWithFrame:label7Rect];
     //button 选套餐
     CGRect frame3 = CGRectMake(20, 390, 280, 50);
     UIButton *button3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -148,7 +152,7 @@
     NSString *filename=[path stringByAppendingPathComponent:@"test.plist"];
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm createFileAtPath:filename contents:nil attributes:nil];
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:label2.text,@"1",label4.text,@"2",label6.text,@"3", nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:label2.text,@"1",label4.text,@"2",label6.text,@"3", label7.text,@"4", nil];
     [dic writeToFile:filename atomically:YES];
 //    NSLog(@" %@",dic);
     
@@ -168,5 +172,10 @@
 -(void)comHandleInfo:(NSNotification *)notification{
     NSString *datac = [notification object];
     label6.text = datac;
+}
+-(void)comboHandleInfo:(NSNotification *)notification{
+    NSString *datap = [notification object];
+    label7.text = datap;
+//    NSLog(@"  %@",datap);
 }
 @end

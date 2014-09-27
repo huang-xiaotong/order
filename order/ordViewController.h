@@ -19,5 +19,8 @@
     UILabel *label;
     UILabel *label2;
     NSDictionary *dic2;
+    UILabel *label4;
+    UILabel *label1;
+    UILabel *label3;
 }
 @end
