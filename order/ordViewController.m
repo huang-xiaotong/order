@@ -16,6 +16,7 @@
 @implementation ordViewController
 @synthesize listDatap;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,8 +35,6 @@
     [DataTable setDelegate:self];
     [DataTable setDataSource:self];
     [self.view addSubview:DataTable];
-    
-    
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString *path=[paths objectAtIndex:0];
 //    NSLog(@" %@",path);
@@ -65,10 +64,10 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
-        return 2;
+        return 1;
     }
     if (section == 1) {
-        return 4;
+        return 5;
     }
     return 0;
 }
@@ -110,19 +109,20 @@ if (cell == nil){
 }
     if(indexPath.section == 0)
     {
-//    if(indexPath.row == 0)
-        int i;
-        for(i=1; i < 7; i++)
-        {
-            if ([label1.text length] == 0) {
-                i = indexPath.row;
                 label1.text = [dic2 valueForKey:@"1"];
                 label2.text = [dic2 valueForKey:@"2"];
                 label3.text = [dic2 valueForKey:@"3"];
                 label4.text = [dic2 valueForKey:@"4"];
-            }
-            break;
-    }
+        NSString *str = label4.text;
+        NSScanner *scanner = [NSScanner scannerWithString:str];
+        [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
+        int number;
+        [scanner scanInt:&number];
+//        NSLog(@"number : %d", number);
+        if (number > 12) {
+            label4.textColor = [UIColor redColor];
+        }
+    
     }
         else
             {
@@ -131,4 +131,7 @@ if (cell == nil){
             }
     return cell;
 }
+
+
+
 @end
