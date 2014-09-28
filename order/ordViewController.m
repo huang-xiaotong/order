@@ -40,17 +40,12 @@
 //    NSLog(@" %@",path);
     NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
     m_arrOrdered = [[NSArray alloc]initWithContentsOfFile:file];
-    NSLog(@" %@",m_arrOrdered);
-    NSLog(@"%@",m_arrOrdered[0][0]);
-//    NSLog(@"%@",m_arrOrdered[0][1]);
-//    NSLog(@"%@",m_arrOrdered[0][2]);
-//    NSLog(@"%@",m_arrOrdered[0][3]);
-    NSLog(@"%@",m_arrOrdered[1][0]);
-    NSLog(@"%@",m_arrOrdered[1][1]);
+    NSLog(@"%@",m_arrOrdered);
 	array = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
-    for (int i=0; i<6; i++) {
+    for (int i=0; i < m_arrOrdered.count; i++) {
         [array removeObject:m_arrOrdered[i][0]];
-        break;
+//        NSLog(@"%@",m_arrOrdered[i][0]);
+//        NSLog(@"%@",array);
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -84,7 +79,8 @@
         return @"1人已定";
     }
     else{
-        return @"5人未定";}
+       return @"5人未定";
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *cellIdentifier = @"cell";
@@ -115,13 +111,20 @@ if (cell == nil){
 }
     if(indexPath.section == 0)
     {
-        for (int i=1; i<=m_arrOrdered.count; i++) {
-        while (indexPath.row==i) {
-            label1.text = m_arrOrdered[i-1][0];
-            NSLog(@"%@",m_arrOrdered[i-1][0]);
-                label2.text = m_arrOrdered[i-1][1];
-                label3.text = m_arrOrdered[i-1][2];
-                label4.text = m_arrOrdered[i-1][3];
+//        for (int i=1; i<=m_arrOrdered.count; i++) {
+//            while (indexPath.row == i)
+//                NSLog(@"%d",i);
+        int i = 0;
+        while (i<m_arrOrdered.count) {
+            if (indexPath.row == i) {
+                label1.text = m_arrOrdered[i][0];
+            NSLog(@"%@",label1.text);
+                label2.text = m_arrOrdered[i][1];
+            NSLog(@"%@",label2.text);
+                label3.text = m_arrOrdered[i][2];
+            NSLog(@"%@",label3.text);
+                label4.text = m_arrOrdered[i][3];
+            NSLog(@"%@",label4.text);
         NSString *str = label4.text;
         NSScanner *scanner = [NSScanner scannerWithString:str];
         [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
@@ -130,7 +133,8 @@ if (cell == nil){
         if (price > 12) {
             label4.textColor = [UIColor redColor];
         }
-        }
+            }
+            i++;
         }
     }
         else
