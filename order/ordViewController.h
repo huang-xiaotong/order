@@ -18,12 +18,10 @@
     UITableViewCell *cell;
     UILabel *label;
     UILabel *label2;
-    NSDictionary *dic2;
     UILabel *label4;
     UILabel *label1;
     UILabel *label3;
-    NSArray *listDatap;
     NSMutableArray *array;
+    NSArray *m_arrOrdered;
 }
-@property (nonatomic, retain) NSArray *listDatap;
 @end

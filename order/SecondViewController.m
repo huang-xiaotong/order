@@ -18,6 +18,7 @@
 
 @implementation SecondViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,7 +47,7 @@
     label2 = [[UILabel alloc] initWithFrame:label2Rect];
     label2.font = [UIFont boldSystemFontOfSize:16];
     label2.enabled = YES;
-    label2.text = data;
+//    label2.text = data;
     label2.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:label2];
     //button 选人
@@ -148,18 +149,35 @@
     
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  
     NSString *path=[paths objectAtIndex:0];
-//    NSLog(@"path = %@",path);
-    NSString *filename=[path stringByAppendingPathComponent:@"test.plist"];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    [fm createFileAtPath:filename contents:nil attributes:nil];
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:label2.text,@"1",label4.text,@"2",label6.text,@"3", label7.text,@"4", nil];
-    [dic writeToFile:filename atomically:YES];
-//    NSLog(@" %@",dic);
+    NSLog(@"path = %@",path);
+    NSString *filename=[path stringByAppendingPathComponent:@"ordered.plist"];
+    NSFileManager *ordered = [NSFileManager defaultManager];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filename])
+    {
+        [ordered createFileAtPath:filename contents:nil attributes:nil];
+        NSArray *arrorder =[[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+//        NSDictionary *dicorder = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
+        [arrorder writeToFile:filename atomically:YES];
+        NSLog(@" %@",arrorder);
+    }
+    else
+    {
+//        NSDictionary *dicordered = [NSDictionary dictionaryWithContentsOfFile: filename];
+//        NSLog(@" %@",dicordered);
+//        NSDictionary *dicodd = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
+//        NSLog(@" %@",dicodd);
+        NSArray *arrordered = [NSArray arrayWithContentsOfFile:filename];
+        NSLog(@"%@",arrordered);
+        NSArray *arrodd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+        NSArray *arraylast = [[NSArray alloc]initWithObjects:arrordered, arrodd, nil];
+        [arraylast writeToFile:filename atomically:YES];
+        NSLog(@" %@",arraylast);
     
+    }
     
     }
 -(void)peoHandleInfo:(NSNotification *)notification{
-    data = [notification object];
+    NSString *data = [notification object];
     label2.text = data;
 //    NSLog(@"%@",label2.text);
 //    NSLog(@">>2>> %@",data);

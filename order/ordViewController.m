@@ -14,7 +14,7 @@
 @end
 
 @implementation ordViewController
-@synthesize listDatap;
+//@synthesize listDatap;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,12 +38,13 @@
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString *path=[paths objectAtIndex:0];
 //    NSLog(@" %@",path);
-    NSString *file=[path stringByAppendingPathComponent:@"test.plist"];
-    dic2 = [NSDictionary dictionaryWithContentsOfFile:file];
-//    NSLog(@" %@",dic2);
+    NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
+    m_arrOrdered = [[NSMutableArray alloc]initWithContentsOfFile:file];
+    NSLog(@" %@",m_arrOrdered);
+//    NSLog(@"%@",m_arrOrdered[0][0]);
+//    NSLog(@"%@",m_arrOrdered[0][0][0]);
 	array = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
-    [array removeObject:[dic2 valueForKey:@"1"]];
-    self.listDatap = array;
+    [array removeObject:m_arrOrdered[0]];
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,17 +65,16 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
-        return 1;
+        return m_arrOrdered.count;
     }
     if (section == 1) {
-        return 5;
+        return array.count;
     }
     return 0;
 }
 //每个section显示的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        
         return @"1人已定";
     }
     else{
@@ -109,25 +109,26 @@ if (cell == nil){
 }
     if(indexPath.section == 0)
     {
-                label1.text = [dic2 valueForKey:@"1"];
-                label2.text = [dic2 valueForKey:@"2"];
-                label3.text = [dic2 valueForKey:@"3"];
-                label4.text = [dic2 valueForKey:@"4"];
+        while (indexPath.row==1) {
+                label1.text = m_arrOrdered[0];
+                label2.text = m_arrOrdered[1];
+                label3.text = m_arrOrdered[2];
+                label4.text = m_arrOrdered[3];
         NSString *str = label4.text;
         NSScanner *scanner = [NSScanner scannerWithString:str];
         [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
-        int number;
-        [scanner scanInt:&number];
-//        NSLog(@"number : %d", number);
-        if (number > 12) {
+        int price;
+        [scanner scanInt:&price];
+        if (price > 12) {
             label4.textColor = [UIColor redColor];
         }
-    
+        }
+        
     }
         else
             {
                 NSUInteger row = [indexPath row];
-                label1.text = [listDatap objectAtIndex:row];
+                label1.text = [array objectAtIndex:row];
             }
     return cell;
 }

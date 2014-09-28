@@ -13,7 +13,6 @@
 {
      UIScrollView *scrollView;
     UILabel *label2;
-    NSString *data;
     UILabel *label4;
     UILabel *label6;
     UILabel *label7;
