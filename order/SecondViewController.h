@@ -16,5 +16,6 @@
     UILabel *label4;
     UILabel *label6;
     UILabel *label7;
+    NSArray *arrorder;
 }
 @end

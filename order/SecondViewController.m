@@ -155,24 +155,24 @@
         if (![[NSFileManager defaultManager] fileExistsAtPath:filename])
     {
         [ordered createFileAtPath:filename contents:nil attributes:nil];
-        NSArray *arrorder =[[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
-//        NSDictionary *dicorder = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
-        [arrorder writeToFile:filename atomically:YES];
-        NSLog(@" %@",arrorder);
+//        arrorder =[[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+        NSDictionary *dicorder = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
+        [dicorder writeToFile:filename atomically:YES];
+        NSLog(@" %@",dicorder);
     }
     else
     {
-//        NSDictionary *dicordered = [NSDictionary dictionaryWithContentsOfFile: filename];
-//        NSLog(@" %@",dicordered);
-//        NSDictionary *dicodd = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
-//        NSLog(@" %@",dicodd);
-        NSArray *arrordered = [NSArray arrayWithContentsOfFile:filename];
-        NSLog(@"%@",arrordered);
-        NSArray *arrodd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
-        NSArray *arraylast = [[NSArray alloc]initWithObjects:arrordered, arrodd, nil];
-        [arraylast writeToFile:filename atomically:YES];
-        NSLog(@" %@",arraylast);
-    
+        NSDictionary *dicordered = [NSDictionary dictionaryWithContentsOfFile: filename];
+        NSLog(@" %@",dicordered);
+        NSDictionary *dicadd = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
+        NSLog(@" %@",dicadd);
+        NSMutableArray *arrlast = [[NSMutableArray alloc]initWithObjects:dicordered, dicadd, nil];
+//        NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:filename];
+//        NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+//        [arrlast addObject:arrordered];
+//        [arrlast addObject:arradd];
+        [arrlast writeToFile:filename atomically:YES];
+        NSLog(@"%@",arrlast);
     }
     
     }

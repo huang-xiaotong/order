@@ -41,8 +41,12 @@
     NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
     m_arrOrdered = [[NSMutableArray alloc]initWithContentsOfFile:file];
     NSLog(@" %@",m_arrOrdered);
-//    NSLog(@"%@",m_arrOrdered[0][0]);
-//    NSLog(@"%@",m_arrOrdered[0][0][0]);
+    NSLog(@"%@",m_arrOrdered[0][0]);
+    NSLog(@"%@",m_arrOrdered[0][1]);
+    NSLog(@"%@",m_arrOrdered[0][2]);
+    NSLog(@"%@",m_arrOrdered[0][3]);
+//    NSLog(@"%@",m_arrOrdered[1][0]);
+//    NSLog(@"%@",m_arrOrdered[1][1]);
 	array = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
     [array removeObject:m_arrOrdered[0]];
     
@@ -109,11 +113,13 @@ if (cell == nil){
 }
     if(indexPath.section == 0)
     {
-        while (indexPath.row==1) {
-                label1.text = m_arrOrdered[0];
-                label2.text = m_arrOrdered[1];
-                label3.text = m_arrOrdered[2];
-                label4.text = m_arrOrdered[3];
+        for (int i=1; i<=m_arrOrdered.count; i++) {
+        while (indexPath.row==i) {
+                label1.text = m_arrOrdered[i-1][0];
+            NSLog(@"%@",m_arrOrdered[i-1][0]);
+                label2.text = m_arrOrdered[i-1][1];
+                label3.text = m_arrOrdered[i-1][2];
+                label4.text = m_arrOrdered[i-1][3];
         NSString *str = label4.text;
         NSScanner *scanner = [NSScanner scannerWithString:str];
         [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
@@ -123,7 +129,7 @@ if (cell == nil){
             label4.textColor = [UIColor redColor];
         }
         }
-        
+        }
     }
         else
             {
