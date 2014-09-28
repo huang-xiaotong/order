@@ -146,36 +146,47 @@
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];
-    
+    //保存数据
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  
     NSString *path=[paths objectAtIndex:0];
-    NSLog(@"path = %@",path);
+//    NSLog(@"path = %@",path);
     NSString *filename=[path stringByAppendingPathComponent:@"ordered.plist"];
     NSFileManager *ordered = [NSFileManager defaultManager];
         if (![[NSFileManager defaultManager] fileExistsAtPath:filename])
     {
         [ordered createFileAtPath:filename contents:nil attributes:nil];
-//        arrorder =[[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
-        NSDictionary *dicorder = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
-        [dicorder writeToFile:filename atomically:YES];
-        NSLog(@" %@",dicorder);
+        arrorder =[[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+        NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
+//        NSDictionary *dicorder = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
+        [arrord writeToFile:filename atomically:YES];
+        NSLog(@" %@",arrord);
     }
     else
     {
-        NSDictionary *dicordered = [NSDictionary dictionaryWithContentsOfFile: filename];
-        NSLog(@" %@",dicordered);
-        NSDictionary *dicadd = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
-        NSLog(@" %@",dicadd);
-        NSMutableArray *arrlast = [[NSMutableArray alloc]initWithObjects:dicordered, dicadd, nil];
-//        NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:filename];
+         NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:filename];
+        NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+        [arrordered addObject:arradd];
+        [arrordered writeToFile:filename atomically:YES];
+        NSLog(@"%@",arrordered);
+//        if (arrordered.count == 4){
+//            NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+//            NSMutableArray *arrlast = [[NSMutableArray alloc]initWithObjects:arrordered, arradd, nil];
+//            [arrlast writeToFile:filename atomically:YES];
+//            NSLog(@"%@",arrlast);
+//        }
+//        else{
 //        NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
-//        [arrlast addObject:arrordered];
-//        [arrlast addObject:arradd];
-        [arrlast writeToFile:filename atomically:YES];
-        NSLog(@"%@",arrlast);
+//            [arrordered addObject:arradd];
+//            [arrordered writeToFile:filename atomically:YES];
+//            NSLog(@"%@",arrordered);
+        
+//        NSDictionary *dicordered = [NSDictionary dictionaryWithContentsOfFile: filename];
+//        NSLog(@" %@",dicordered);
+//        NSDictionary *dicadd = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
+//        NSLog(@" %@",dicadd);
+//        }
     }
-    
-    }
+}
 -(void)peoHandleInfo:(NSNotification *)notification{
     NSString *data = [notification object];
     label2.text = data;

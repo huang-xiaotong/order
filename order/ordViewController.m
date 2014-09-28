@@ -39,17 +39,19 @@
     NSString *path=[paths objectAtIndex:0];
 //    NSLog(@" %@",path);
     NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
-    m_arrOrdered = [[NSMutableArray alloc]initWithContentsOfFile:file];
+    m_arrOrdered = [[NSArray alloc]initWithContentsOfFile:file];
     NSLog(@" %@",m_arrOrdered);
     NSLog(@"%@",m_arrOrdered[0][0]);
-    NSLog(@"%@",m_arrOrdered[0][1]);
-    NSLog(@"%@",m_arrOrdered[0][2]);
-    NSLog(@"%@",m_arrOrdered[0][3]);
-//    NSLog(@"%@",m_arrOrdered[1][0]);
-//    NSLog(@"%@",m_arrOrdered[1][1]);
+//    NSLog(@"%@",m_arrOrdered[0][1]);
+//    NSLog(@"%@",m_arrOrdered[0][2]);
+//    NSLog(@"%@",m_arrOrdered[0][3]);
+    NSLog(@"%@",m_arrOrdered[1][0]);
+    NSLog(@"%@",m_arrOrdered[1][1]);
 	array = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
-    [array removeObject:m_arrOrdered[0]];
-    
+    for (int i=0; i<6; i++) {
+        [array removeObject:m_arrOrdered[i][0]];
+        break;
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0f;
@@ -115,7 +117,7 @@ if (cell == nil){
     {
         for (int i=1; i<=m_arrOrdered.count; i++) {
         while (indexPath.row==i) {
-                label1.text = m_arrOrdered[i-1][0];
+            label1.text = m_arrOrdered[i-1][0];
             NSLog(@"%@",m_arrOrdered[i-1][0]);
                 label2.text = m_arrOrdered[i-1][1];
                 label3.text = m_arrOrdered[i-1][2];
