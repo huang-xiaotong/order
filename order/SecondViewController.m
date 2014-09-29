@@ -157,8 +157,19 @@
     {
         [ordered createFileAtPath:filename contents:nil attributes:nil];
         arrorder =[[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+        if (label2.text == nil) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"人名不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        if (label4.text == nil) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"餐厅不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        if (label6.text == nil) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"套餐不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+            [alert show];
+        }
         NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
-//        NSDictionary *dicorder = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
         [arrord writeToFile:filename atomically:YES];
 //        NSLog(@" %@",arrord);
     }
@@ -166,26 +177,21 @@
     {
          NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:filename];
         NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
+        if (label2.text == nil) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"人名不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        if (label4.text == nil) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"餐厅不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        if (label6.text == nil) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"套餐不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+            [alert show];
+        }
         [arrordered addObject:arradd];
         [arrordered writeToFile:filename atomically:YES];
 //        NSLog(@"%@",arrordered);
-//        if (arrordered.count == 4){
-//            NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
-//            NSMutableArray *arrlast = [[NSMutableArray alloc]initWithObjects:arrordered, arradd, nil];
-//            [arrlast writeToFile:filename atomically:YES];
-//            NSLog(@"%@",arrlast);
-//        }
-//        else{
-//        NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
-//            [arrordered addObject:arradd];
-//            [arrordered writeToFile:filename atomically:YES];
-//            NSLog(@"%@",arrordered);
-        
-//        NSDictionary *dicordered = [NSDictionary dictionaryWithContentsOfFile: filename];
-//        NSLog(@" %@",dicordered);
-//        NSDictionary *dicadd = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
-//        NSLog(@" %@",dicadd);
-//        }
     }
 }
 -(void)peoHandleInfo:(NSNotification *)notification{

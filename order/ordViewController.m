@@ -119,14 +119,10 @@ if (cell == nil){
         int i = 0;
         while (i<m_arrOrdered.count) {
             if (indexPath.row == i) {
-                label1.text = m_arrOrdered[i][0];
-//            NSLog(@"%@",label1.text);
-                label2.text = m_arrOrdered[i][1];
-//            NSLog(@"%@",label2.text);
+                    label1.text = m_arrOrdered[i][0];
+                    label2.text = m_arrOrdered[i][1];
                 label3.text = m_arrOrdered[i][2];
-//            NSLog(@"%@",label3.text);
                 label4.text = m_arrOrdered[i][3];
-//            NSLog(@"%@",label4.text);
         NSString *str = label4.text;
         NSScanner *scanner = [NSScanner scannerWithString:str];
         [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
