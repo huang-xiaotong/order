@@ -31,7 +31,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订单显示";
-    DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 410)];
+    UITableView *DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 410)];
     [DataTable setDelegate:self];
     [DataTable setDataSource:self];
     [self.view addSubview:DataTable];
@@ -41,9 +41,9 @@
     NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
     m_arrOrdered = [[NSArray alloc]initWithContentsOfFile:file];
 //    NSLog(@"%@",m_arrOrdered);
-	array = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
+	arrpeople = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
     for (int i=0; i < m_arrOrdered.count; i++) {
-        [array removeObject:m_arrOrdered[i][0]];
+        [arrpeople removeObject:m_arrOrdered[i][0]];
 //        NSLog(@"%@",m_arrOrdered[i][0]);
 //        NSLog(@"%@",array);
     }
@@ -69,7 +69,7 @@
         return m_arrOrdered.count;
     }
     if (section == 1) {
-        return array.count;
+        return arrpeople.count;
     }
     return 0;
 }
@@ -80,56 +80,53 @@
         return [NSString stringWithFormat:@"%d人已定",n];
     }
     else{
-        int m = array.count;
+        int m = arrpeople.count;
        return [NSString stringWithFormat:@"%d人未定",m];
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *cellIdentifier = @"cell";
-   cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 if (cell == nil){
     cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     //label4 价钱
     CGRect label4Rect = CGRectMake(250, 20, 130, 20);
-    label4 = [[UILabel alloc]initWithFrame:label4Rect];
-    [cell.contentView addSubview:label4];
-    label4.font = [UIFont boldSystemFontOfSize:16];
+    labelprice = [[UILabel alloc]initWithFrame:label4Rect];
+    [cell.contentView addSubview:labelprice];
+    labelprice.font = [UIFont boldSystemFontOfSize:16];
     //label2 餐厅
     CGRect label2Rect = CGRectMake(10, 40, 60, 20);
-    label2 = [[UILabel alloc]initWithFrame:label2Rect];
-    [cell.contentView addSubview:label2];
-    label2.font = [UIFont boldSystemFontOfSize:12];
+    labelres = [[UILabel alloc]initWithFrame:label2Rect];
+    [cell.contentView addSubview:labelres];
+    labelres.font = [UIFont boldSystemFontOfSize:12];
     //label1 people
     CGRect label1Rect = CGRectMake(10, 15, 50, 20);
-    label1 = [[UILabel alloc]initWithFrame:label1Rect];
-    [cell.contentView addSubview:label1];
-    label1.font = [UIFont boldSystemFontOfSize:18];
+    labelpeople = [[UILabel alloc]initWithFrame:label1Rect];
+    [cell.contentView addSubview:labelpeople];
+    labelpeople.font = [UIFont boldSystemFontOfSize:18];
     //label3 套餐
     CGRect label3Rect = CGRectMake(70, 40, 100, 20);
-    label3 = [[UILabel alloc]initWithFrame:label3Rect];
-    [cell.contentView addSubview:label3];
-    label3.font = [UIFont boldSystemFontOfSize:12];
+    labelcombo = [[UILabel alloc]initWithFrame:label3Rect];
+    [cell.contentView addSubview:labelcombo];
+    labelcombo.font = [UIFont boldSystemFontOfSize:12];
     
 }
     if(indexPath.section == 0)
     {
-//        for (int i=1; i<=m_arrOrdered.count; i++) {
-//            while (indexPath.row == i)
-//                NSLog(@"%d",i);
         int i = 0;
         while (i<m_arrOrdered.count) {
             if (indexPath.row == i) {
-                    label1.text = m_arrOrdered[i][0];
-                    label2.text = m_arrOrdered[i][1];
-                label3.text = m_arrOrdered[i][2];
-                label4.text = m_arrOrdered[i][3];
-        NSString *str = label4.text;
+                    labelpeople.text = m_arrOrdered[i][0];
+                    labelres.text = m_arrOrdered[i][1];
+                labelcombo.text = m_arrOrdered[i][2];
+                labelprice.text = m_arrOrdered[i][3];
+        NSString *str = labelprice.text;
         NSScanner *scanner = [NSScanner scannerWithString:str];
         [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
         int price;
         [scanner scanInt:&price];
         if (price > 12) {
-            label4.textColor = [UIColor redColor];
+            labelprice.textColor = [UIColor redColor];
         }
             }
             i++;
@@ -138,7 +135,7 @@ if (cell == nil){
         else
             {
                 NSUInteger row = [indexPath row];
-                label1.text = [array objectAtIndex:row];
+                labelpeople.text = [arrpeople objectAtIndex:row];
             }
     return cell;
 }

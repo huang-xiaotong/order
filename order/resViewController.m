@@ -15,14 +15,14 @@
 @implementation resViewController
 @synthesize listDatar;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
@@ -35,7 +35,6 @@
     
     NSArray *arrayr = [[NSArray alloc]initWithObjects:@"KFC",@"7-11",@"成都小吃", nil];//创建数组
     self.listDatar = arrayr;
-
 	// Do any additional setup after loading the view.
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -69,9 +68,6 @@
     NSUInteger row = [indexPath row];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotificationName:@"resInfo" object:[listDatar objectAtIndex:row]];//注册自己为发送者并发送信息
-//    SecondViewController *nextController = [[SecondViewController alloc]init];
-//    [self.navigationController pushViewController:nextController animated:YES];
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.navigationController popViewControllerAnimated:YES];
     
 }

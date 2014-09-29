@@ -33,16 +33,8 @@
     [self.view addSubview:pTableView];
     pTableView.delegate = self;
     pTableView.dataSource = self;
-    NSArray *array = [[NSArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
-    self.listDatap = array;
-//    NSDictionary * dict = [[NSDictionary alloc]initWithObjectsAndKeys:@"赵大", @"name1", @"钱二", @"name2", @"张三", @"name3", @"李四", @"name4", @"王五", @"name5", @"赵六", @"name6", nil];
-//    NSLog(@" %@", dict);
-//    NSArray *values = [dict allValues];
-//    self.listDatap = values;
-//    NSLog(@" %@", listDatap);
-    
-
-	// Do any additional setup after loading the view.
+    NSArray *arraypeople = [[NSArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
+    self.listDatap = arraypeople;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0f;

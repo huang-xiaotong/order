@@ -12,10 +12,9 @@
 <UITableViewDelegate, UITableViewDataSource>
 {
      UIScrollView *scrollView;
-    UILabel *label2;
-    UILabel *label4;
-    UILabel *label6;
-    UILabel *label7;
-    NSArray *arrorder;
+    UILabel *labelpeopleNull;
+    UILabel *labelresNull;
+    UILabel *labelcomboNull;
+    UILabel *labelpriceNull;
 }
 @end
