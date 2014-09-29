@@ -11,6 +11,7 @@
 #import "resViewController.h"
 #import "comboViewController.h"
 #import "ordViewController.h"
+#import "ViewController.h"
 @interface SecondViewController ()
 
 @end
@@ -159,7 +160,7 @@
         NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
 //        NSDictionary *dicorder = [[NSDictionary alloc]initWithObjectsAndKeys:label2.text, @"people", label4.text, @"res", label6.text, @"combo", label7.text, @"price", nil];
         [arrord writeToFile:filename atomically:YES];
-        NSLog(@" %@",arrord);
+//        NSLog(@" %@",arrord);
     }
     else
     {
@@ -167,7 +168,7 @@
         NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
         [arrordered addObject:arradd];
         [arrordered writeToFile:filename atomically:YES];
-        NSLog(@"%@",arrordered);
+//        NSLog(@"%@",arrordered);
 //        if (arrordered.count == 4){
 //            NSArray *arradd = [[NSArray alloc]initWithObjects:label2.text, label4.text, label6.text, label7.text, nil];
 //            NSMutableArray *arrlast = [[NSMutableArray alloc]initWithObjects:arrordered, arradd, nil];

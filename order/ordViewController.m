@@ -40,7 +40,7 @@
 //    NSLog(@" %@",path);
     NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
     m_arrOrdered = [[NSArray alloc]initWithContentsOfFile:file];
-    NSLog(@"%@",m_arrOrdered);
+//    NSLog(@"%@",m_arrOrdered);
 	array = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
     for (int i=0; i < m_arrOrdered.count; i++) {
         [array removeObject:m_arrOrdered[i][0]];
@@ -76,10 +76,12 @@
 //每个section显示的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return @"1人已定";
+        int n = m_arrOrdered.count;
+        return [NSString stringWithFormat:@"%d人已定",n];
     }
     else{
-       return @"5人未定";
+        int m = array.count;
+       return [NSString stringWithFormat:@"%d人未定",m];
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -118,13 +120,13 @@ if (cell == nil){
         while (i<m_arrOrdered.count) {
             if (indexPath.row == i) {
                 label1.text = m_arrOrdered[i][0];
-            NSLog(@"%@",label1.text);
+//            NSLog(@"%@",label1.text);
                 label2.text = m_arrOrdered[i][1];
-            NSLog(@"%@",label2.text);
+//            NSLog(@"%@",label2.text);
                 label3.text = m_arrOrdered[i][2];
-            NSLog(@"%@",label3.text);
+//            NSLog(@"%@",label3.text);
                 label4.text = m_arrOrdered[i][3];
-            NSLog(@"%@",label4.text);
+//            NSLog(@"%@",label4.text);
         NSString *str = label4.text;
         NSScanner *scanner = [NSScanner scannerWithString:str];
         [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
