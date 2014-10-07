@@ -31,7 +31,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订单显示";
-    UITableView *DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 410)];
+    UITableView *DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)];
     [DataTable setDelegate:self];
     [DataTable setDataSource:self];
     [self.view addSubview:DataTable];
@@ -65,30 +65,32 @@
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
+    if (section == 0) 
         return m_arrOrdered.count;
-    }
-    if (section == 1) {
+    if (section == 1) 
         return arrpeople.count;
-    }
     return 0;
 }
 //每个section显示的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        int n = m_arrOrdered.count;
+//        int n = m_arrOrdered.count;
+        int n = 6 - arrpeople.count;
         return [NSString stringWithFormat:@"%d人已定",n];
     }
-    else{
+    if (section == 1)
+    {
         int m = arrpeople.count;
        return [NSString stringWithFormat:@"%d人未定",m];
     }
+    return nil;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *cellIdentifier = @"cell";
    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 if (cell == nil){
     cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
     //label4 价钱
     CGRect label4Rect = CGRectMake(250, 20, 130, 20);
     labelprice = [[UILabel alloc]initWithFrame:label4Rect];
@@ -109,34 +111,33 @@ if (cell == nil){
     labelcombo = [[UILabel alloc]initWithFrame:label3Rect];
     [cell.contentView addSubview:labelcombo];
     labelcombo.font = [UIFont boldSystemFontOfSize:12];
-    
-}
     if(indexPath.section == 0)
     {
+        
         int i = 0;
         while (i<m_arrOrdered.count) {
             if (indexPath.row == i) {
-                    labelpeople.text = m_arrOrdered[i][0];
-                    labelres.text = m_arrOrdered[i][1];
+                labelpeople.text = m_arrOrdered[i][0];
+                labelres.text = m_arrOrdered[i][1];
                 labelcombo.text = m_arrOrdered[i][2];
                 labelprice.text = m_arrOrdered[i][3];
-        NSString *str = labelprice.text;
-        NSScanner *scanner = [NSScanner scannerWithString:str];
-        [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
-        int price;
-        [scanner scanInt:&price];
-        if (price > 12) {
-            labelprice.textColor = [UIColor redColor];
-        }
+                NSString *str = labelprice.text;
+                NSScanner *scanner = [NSScanner scannerWithString:str];
+                [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
+                int price;
+                [scanner scanInt:&price];
+                if (price > 12) {
+                    labelprice.textColor = [UIColor redColor];
+                }
             }
             i++;
         }
     }
-        else
-            {
-                NSUInteger row = [indexPath row];
-                labelpeople.text = [arrpeople objectAtIndex:row];
-            }
+    if (indexPath.section == 1)
+    {
+        NSUInteger row = [indexPath row];
+        labelpeople.text = [arrpeople objectAtIndex:row];
+    }
     return cell;
 }
 

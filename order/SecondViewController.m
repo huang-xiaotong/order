@@ -25,8 +25,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订餐";
-//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:@selector(back)];
-//    [self.navigationItem setBackBarButtonItem:backItem];
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
     scrollView.contentSize = CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2);
     scrollView.directionalLockEnabled = YES;
@@ -153,6 +151,7 @@
 //    [self.navigationItem setBackBarButtonItem:backItem];
 //    [self.navigationController pushViewController:nextController animated:YES];
     //保存数据
+    if (labelpeopleNull.text != NULL & labelpriceNull.text != NULL & labelcomboNull.text != NULL) {
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  
     NSString *path=[paths objectAtIndex:0];
 //    NSLog(@"path = %@",path);
@@ -202,7 +201,16 @@
     labelpeopleNull.text = NULL;
     labelresNull.text = NULL;
     labelcomboNull.text = NULL;
-    
+}
+    else
+{
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"数据未保存" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+    [alert show];
+//    labelpriceNull.text = NULL;
+//    labelpeopleNull.text = NULL;
+//    labelresNull.text = NULL;
+//    labelcomboNull.text = NULL;
+}
 }
 -(void)peoHandleInfo:(NSNotification *)notification{
     NSString *data = [notification object];
