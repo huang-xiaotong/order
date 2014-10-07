@@ -14,17 +14,6 @@
 @end
 
 @implementation ordViewController
-//@synthesize listDatap;
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -37,29 +26,22 @@
     [self.view addSubview:DataTable];
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString *path=[paths objectAtIndex:0];
-//    NSLog(@" %@",path);
     NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
     m_arrOrdered = [[NSArray alloc]initWithContentsOfFile:file];
-//    NSLog(@"%@",m_arrOrdered);
 	arrpeople = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
     for (int i=0; i < m_arrOrdered.count; i++) {
         [arrpeople removeObject:m_arrOrdered[i][0]];
-//        NSLog(@"%@",m_arrOrdered[i][0]);
-//        NSLog(@"%@",array);
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0f;
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 #pragma mark -
 #pragma mark Table View Data Soure Methods
-
 //指定有多少个分区(Section)，默认为1
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -74,16 +56,14 @@
 //每个section显示的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-//        int n = m_arrOrdered.count;
         int n = 6 - arrpeople.count;
         return [NSString stringWithFormat:@"%d人已定",n];
     }
-    if (section == 1)
+    else 
     {
         int m = arrpeople.count;
        return [NSString stringWithFormat:@"%d人未定",m];
     }
-    return nil;
 }
 - (UILabel *)createCellLabel:(CGRect)frame :(double)fontSize
 {
@@ -130,7 +110,7 @@ if (cell == nil){
             i++;
         }
     }
-    if (indexPath.section == 1)
+    else 
     {
         NSUInteger row = [indexPath row];
         labelpeople.text = [arrpeople objectAtIndex:row];

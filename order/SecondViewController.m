@@ -82,7 +82,6 @@
     UILabel *label = [[UILabel alloc]initWithFrame:frame];
     label.font = [UIFont boldSystemFontOfSize:fontSize];
     label.text = title;
-//    label.backgroundColor = backgroundColor;
     return label;
 }
 - (UIButton *) creatbutton: (CGRect)frame :(double)fontSize :(NSString*)setTitle
@@ -123,79 +122,51 @@
     [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];
 }
+- (UIAlertView *) creatalert:(NSString *)message
+{
+UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:@"请重新选择" otherButtonTitles:nil, nil];
+    return alert;
+}
 - (void)sure:(id)sender{
     //保存数据
-    if (labelpeopleNull.text != NULL & labelpriceNull.text != NULL & labelcomboNull.text != NULL) {
-    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  
-    NSString *path=[paths objectAtIndex:0];
-//    NSLog(@"path = %@",path);
-    NSString *orderfile=[path stringByAppendingPathComponent:@"ordered.plist"];
-    NSFileManager *ordered = [NSFileManager defaultManager];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:orderfile])
+    if (labelpeopleNull.text != NULL & labelpriceNull.text != NULL & labelcomboNull.text != NULL)
     {
-        [ordered createFileAtPath:orderfile contents:nil attributes:nil];
-        NSArray *arrorder =[[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
-        if (labelpeopleNull.text == nil) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"人名不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        if (labelresNull.text == nil) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"餐厅不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        if (labelcomboNull.text == nil) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"套餐不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
-        [arrord writeToFile:orderfile atomically:YES];
-//        NSLog(@" %@",arrord);
+        NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  
+        NSString *path=[paths objectAtIndex:0];
+        NSString *orderfile=[path stringByAppendingPathComponent:@"ordered.plist"];
+        NSFileManager *ordered = [NSFileManager defaultManager];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:orderfile])
+                {
+                    [ordered createFileAtPath:orderfile contents:nil attributes:nil];
+                    NSArray *arrorder =[[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
+                    NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
+                    [arrord writeToFile:orderfile atomically:YES];
+                }
+            else
+                {
+                    NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:orderfile];
+                    NSArray *arradd = [[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
+                    [arrordered addObject:arradd];
+                    [arrordered writeToFile:orderfile atomically:YES];
+                }
+            labelpriceNull.text = NULL;
+            labelpeopleNull.text = NULL;
+            labelresNull.text = NULL;
+            labelcomboNull.text = NULL;
     }
     else
     {
-         NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:orderfile];
-        NSArray *arradd = [[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
-        if (labelpeopleNull.text == nil) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"人名不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        if (labelresNull.text == nil) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"餐厅不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        if (labelcomboNull.text == nil) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"套餐不能为空" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        [arrordered addObject:arradd];
-        [arrordered writeToFile:orderfile atomically:YES];
-//        NSLog(@"%@",arrordered);
-    }
-    labelpriceNull.text = NULL;
-    labelpeopleNull.text = NULL;
-    labelresNull.text = NULL;
-    labelcomboNull.text = NULL;
-}
-    else
-{
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"数据未保存" delegate:self cancelButtonTitle:@"重新选择" otherButtonTitles:nil, nil];
+    UIAlertView *alert=[self creatalert:@"数据未保存"];
     [alert show];
-//    labelpriceNull.text = NULL;
-//    labelpeopleNull.text = NULL;
-//    labelresNull.text = NULL;
-//    labelcomboNull.text = NULL;
-}
+    }
 }
 -(void)peoHandleInfo:(NSNotification *)notification{
     NSString *data = [notification object];
     labelpeopleNull.text = data;
-//    NSLog(@"%@",label2.text);
-//    NSLog(@">>2>> %@",data);
 }
 -(void)resHandleInfo:(NSNotification *)notification{
     NSString *datar = [notification object];
     labelresNull.text = datar;
-//    NSLog(@" %@", datar);
 }
 -(void)comHandleInfo:(NSNotification *)notification{
     NSString *datac = [notification object];
@@ -204,6 +175,5 @@
 -(void)comboHandleInfo:(NSNotification *)notification{
     NSString *datap = [notification object];
     labelpriceNull.text = datap;
-//    NSLog(@"  %@",datap);
 }
 @end
