@@ -38,86 +38,64 @@
     [center addObserver:self selector:@selector(comHandleInfo:) name:@"comInfo" object:nil];
     [center addObserver:self selector:@selector(comboHandleInfo:) name:@"comboInfo" object:nil];
     //labelpeople 人
-    CGRect labelRect = CGRectMake(15, 15, 30, 20);
-    UILabel *labelpeople = [[UILabel alloc] initWithFrame:labelRect];
-    labelpeople.text = @"人:";
-    labelpeople.font = [UIFont boldSystemFontOfSize:16];
+    UILabel *labelpeople = [self createLabel:CGRectMake(15, 15, 30, 20) :16 :@"人:" ];
     [scrollView addSubview:labelpeople];
     //label 空白 人
-    CGRect label2Rect = CGRectMake(20, 40, 280, 40);
-    labelpeopleNull = [[UILabel alloc] initWithFrame:label2Rect];
-    labelpeopleNull.font = [UIFont boldSystemFontOfSize:16];
-    labelpeopleNull.enabled = YES;
+    labelpeopleNull = [self createLabel:CGRectMake(20, 40, 280, 40) :16 :NULL];
     labelpeopleNull.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:labelpeopleNull];
     //button 选人
-    CGRect frame = CGRectMake(20, 90, 280, 50);
-    UIButton *butpeople = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    butpeople.frame = frame;
-    [butpeople setTitle:@"选人"forState:UIControlStateNormal];
-    butpeople.backgroundColor = [UIColor clearColor];
-    butpeople.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    [butpeople setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIButton *butpeople = [self creatbutton:CGRectMake(20, 90, 280, 50) :18 :@"选人"];
     [scrollView addSubview:butpeople];
     [butpeople addTarget:self action:@selector(people:) forControlEvents:UIControlEventTouchUpInside];
     //label 餐厅
-    CGRect label3Rect = CGRectMake(15, 160, 40, 20);
-    UILabel *labelres = [[UILabel alloc] initWithFrame:label3Rect];
-    labelres.text = @"餐厅:";
-    labelres.font = [UIFont boldSystemFontOfSize:16];
+    UILabel *labelres = [self createLabel:CGRectMake(15, 160, 40, 20) :16 :@"餐厅:"];
     [scrollView addSubview:labelres];
     //label 空白 餐厅
-    CGRect label4Rect = CGRectMake(20, 190, 280, 40);
-    labelresNull = [[UILabel alloc] initWithFrame:label4Rect];
-    labelresNull.font = [UIFont boldSystemFontOfSize:16];
+    labelresNull = [self createLabel:CGRectMake(20, 190, 280, 40) :16 :NULL];
     labelresNull.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:labelresNull];
     //button 选餐厅
-    CGRect frame2 = CGRectMake(20, 240, 280, 50);
-    UIButton *butres = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    butres.frame = frame2;
-    [butres setTitle:@"选餐厅"forState:UIControlStateNormal];
-    butres.backgroundColor = [UIColor clearColor];
-    butres.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    [butres setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIButton *butres = [self creatbutton:CGRectMake(20, 240, 280, 50) :18 :@"选餐厅"];
     [scrollView addSubview:butres];
     [butres addTarget:self action:@selector(res:) forControlEvents:UIControlEventTouchUpInside];
     //label 套餐
-    CGRect label5Rect = CGRectMake(15, 310, 40, 20);
-    UILabel *labelcombo = [[UILabel alloc] initWithFrame:label5Rect];
-    labelcombo.text = @"套餐:";
-    labelcombo.font = [UIFont boldSystemFontOfSize:16];
+    UILabel *labelcombo = [self createLabel:CGRectMake(15, 310, 40, 20) :16 :@"套餐:"];
     [scrollView addSubview:labelcombo];
     //label 空白 套餐
-    CGRect label6Rect = CGRectMake(20, 340, 280, 40);
-    labelcomboNull = [[UILabel alloc] initWithFrame:label6Rect];
-    labelcomboNull.font = [UIFont boldSystemFontOfSize:16];
+    labelcomboNull = [self createLabel:CGRectMake(20, 340, 280, 40) :16 :NULL];
     labelcomboNull.backgroundColor = [UIColor lightGrayColor];
     [scrollView addSubview:labelcomboNull];
     //label7 空白 价格
-    CGRect label7Rect = CGRectMake(20, 340, 280, 40);
-    labelpriceNull = [[UILabel alloc]initWithFrame:label7Rect];
+    labelpriceNull = [self createLabel:CGRectMake(20, 340, 280, 40) :16 :NULL];
     //button 选套餐
-    CGRect frame3 = CGRectMake(20, 390, 280, 50);
-    UIButton *butcombo = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    butcombo.frame = frame3;
-    [butcombo setTitle:@"选套餐"forState:UIControlStateNormal];
-    butcombo.backgroundColor = [UIColor clearColor];
-    butcombo.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    [butcombo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIButton *butcombo = [self creatbutton:CGRectMake(20, 390, 280, 50) :18 :@"选套餐"];
     [scrollView addSubview:butcombo];
     [butcombo addTarget:self action:@selector(combo:) forControlEvents:UIControlEventTouchUpInside];
     //button 确定
-    CGRect frame4 = CGRectMake(20, 440, 280, 50);
-    UIButton *sure = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    sure.frame = frame4;
-    [sure setTitle:@"确定"forState:UIControlStateNormal];
-    sure.backgroundColor = [UIColor clearColor];
-    sure.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    [sure setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIButton *sure = [self creatbutton:CGRectMake(20, 440, 280, 50) :18 :@"确定"];
     [scrollView addSubview:sure];
     [sure addTarget:self action:@selector(sure:) forControlEvents:UIControlEventTouchUpInside];
 }
+- (UILabel *)createLabel:(CGRect)frame :(double)fontSize :(NSString *)title 
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:frame];
+    label.font = [UIFont boldSystemFontOfSize:fontSize];
+    label.text = title;
+//    label.backgroundColor = backgroundColor;
+    return label;
+}
+- (UIButton *) creatbutton: (CGRect)frame :(double)fontSize :(NSString*)setTitle
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = frame;
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:fontSize];
+    [button setTitle:setTitle forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor clearColor];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    return button;
+}
+
 -(void)back
 {
     NSArray *ay=self.navigationController.viewControllers;
@@ -146,10 +124,6 @@
     [self.navigationController pushViewController:nextController animated:YES];
 }
 - (void)sure:(id)sender{
-//    SecondViewController *nextController = [[SecondViewController alloc]init];
-//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
-//    [self.navigationItem setBackBarButtonItem:backItem];
-//    [self.navigationController pushViewController:nextController animated:YES];
     //保存数据
     if (labelpeopleNull.text != NULL & labelpriceNull.text != NULL & labelcomboNull.text != NULL) {
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  

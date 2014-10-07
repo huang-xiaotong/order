@@ -31,8 +31,7 @@
        rTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, 320, 180)];
     [self.view addSubview:rTableView];
     rTableView.delegate = self;
-    rTableView.dataSource = self;
-    
+    rTableView.dataSource = self;    
     NSArray *arrayr = [[NSArray alloc]initWithObjects:@"KFC",@"7-11",@"成都小吃", nil];//创建数组
     self.listDatar = arrayr;
 	// Do any additional setup after loading the view.
@@ -57,11 +56,9 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    
     NSUInteger row = [indexPath row];
     cell.textLabel.text = [listDatar objectAtIndex:row];
     cell.textLabel.textColor = [UIColor blueColor];
-
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,6 +66,5 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotificationName:@"resInfo" object:[listDatar objectAtIndex:row]];//注册自己为发送者并发送信息
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 @end

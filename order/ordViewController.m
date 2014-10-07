@@ -85,35 +85,32 @@
     }
     return nil;
 }
+- (UILabel *)createCellLabel:(CGRect)frame :(double)fontSize
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:frame];
+    label.font = [UIFont boldSystemFontOfSize:fontSize];
+    return label;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *cellIdentifier = @"cell";
    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 if (cell == nil){
     cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    //label4 价钱
-    CGRect label4Rect = CGRectMake(250, 20, 130, 20);
-    labelprice = [[UILabel alloc]initWithFrame:label4Rect];
+    //label4 价格
+    labelprice = [self createCellLabel:CGRectMake(250, 20, 130, 20) :16];
     [cell.contentView addSubview:labelprice];
-    labelprice.font = [UIFont boldSystemFontOfSize:16];
     //label2 餐厅
-    CGRect label2Rect = CGRectMake(10, 40, 60, 20);
-    labelres = [[UILabel alloc]initWithFrame:label2Rect];
+    labelres = [self createCellLabel:CGRectMake(10, 40, 60, 20) :12];
     [cell.contentView addSubview:labelres];
-    labelres.font = [UIFont boldSystemFontOfSize:12];
     //label1 people
-    CGRect label1Rect = CGRectMake(10, 15, 50, 20);
-    labelpeople = [[UILabel alloc]initWithFrame:label1Rect];
-    [cell.contentView addSubview:labelpeople];
-    labelpeople.font = [UIFont boldSystemFontOfSize:18];
+     labelpeople = [self createCellLabel:CGRectMake(10, 15, 50, 20) :18];
+    [cell.contentView addSubview:labelpeople];  
     //label3 套餐
-    CGRect label3Rect = CGRectMake(70, 40, 100, 20);
-    labelcombo = [[UILabel alloc]initWithFrame:label3Rect];
+    labelcombo = [self createCellLabel:CGRectMake(70, 40, 100, 20) :12];
     [cell.contentView addSubview:labelcombo];
-    labelcombo.font = [UIFont boldSystemFontOfSize:12];
     if(indexPath.section == 0)
     {
-        
         int i = 0;
         while (i<m_arrOrdered.count) {
             if (indexPath.row == i) {

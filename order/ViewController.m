@@ -24,26 +24,23 @@
     self.navigationController.navigationBar.barStyle =
     UIBarStyleBlackOpaque;
     self.view.backgroundColor = [UIColor whiteColor];
-    CGRect frame = CGRectMake(10, 10, 300, 50);
-    UIButton *order = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    order.frame = frame;
-    [order setTitle:@"帮订餐"forState:UIControlStateNormal];
-    order.backgroundColor = [UIColor clearColor];
-    order.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    [order setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    UIButton *order = [self creatbutton:CGRectMake(10, 10, 300, 50):18:@"帮订餐"];
     [self.view addSubview:order];
     [order addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-    CGRect frame2 = CGRectMake(10, 60, 300, 50);
-    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button2.frame = frame2;
-    [button2 setTitle:@"看订单"forState:UIControlStateNormal];
-    button2.backgroundColor = [UIColor clearColor];
-    button2.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.view addSubview:button2];
-    [button2 addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *lookorder = [self creatbutton:CGRectMake(10, 60, 300, 50):18:@"看订单"];
+    [self.view addSubview:lookorder];
+    [lookorder addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
 }
-    
+- (UIButton *) creatbutton: (CGRect)frame :(double)fontSize :(NSString*)setTitle 
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = frame;
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:fontSize];
+    [button setTitle:setTitle forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor clearColor];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    return button;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
