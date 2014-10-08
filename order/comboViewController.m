@@ -29,19 +29,19 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
     TableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, 320, 300)];
     [self.view addSubview:TableView];
     TableView.delegate = self;
     TableView.dataSource = self;
-    
+    [self array];
+}
+-(void)array
+{
     NSArray *arrayn = [[NSArray alloc]initWithObjects:@"田园脆鸡堡",@"黄金咖喱猪排饭",@"意式肉酱肉丸饭",@"老北京鸡肉卷",@"劲脆鸡腿堡", nil];//创建数组
     self.listData = arrayn;
     NSArray *arrayp = [[NSArray alloc]initWithObjects:@"￥10.00", @"￥23.50", @"￥16.00", @"￥14.00", @"￥15.00", nil];
     self.listDatap = arrayp;
-    
 }
-      
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0f;

@@ -140,32 +140,41 @@
 UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:@"请重新选择" otherButtonTitles:nil, nil];
     return alert;
 }
+-(void)judge
+{
+    NSString *orderfile=[path stringByAppendingPathComponent:@"ordered.plist"];
+    NSFileManager *ordered = [NSFileManager defaultManager];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:orderfile])
+    {
+        [ordered createFileAtPath:orderfile contents:nil attributes:nil];
+        NSArray *arrorder =[[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
+        NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
+        [arrord writeToFile:orderfile atomically:YES];
+    }
+    else
+    {
+        NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:orderfile];
+        NSArray *arradd = [[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
+        [arrordered addObject:arradd];
+        [arrordered writeToFile:orderfile atomically:YES];
+    }
+}
+-(void)save
+{
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    path=[paths objectAtIndex:0];
+    [self judge];
+    labelpriceNull.text = NULL;
+    labelpeopleNull.text = NULL;
+    labelresNull.text = NULL;
+    labelcomboNull.text = NULL;
+
+}
 - (void)sure:(id)sender{
     //保存数据
     if (labelpeopleNull.text != NULL & labelpriceNull.text != NULL & labelcomboNull.text != NULL)
     {
-        NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);  
-        NSString *path=[paths objectAtIndex:0];
-        NSString *orderfile=[path stringByAppendingPathComponent:@"ordered.plist"];
-        NSFileManager *ordered = [NSFileManager defaultManager];
-            if (![[NSFileManager defaultManager] fileExistsAtPath:orderfile])
-                {
-                    [ordered createFileAtPath:orderfile contents:nil attributes:nil];
-                    NSArray *arrorder =[[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
-                    NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
-                    [arrord writeToFile:orderfile atomically:YES];
-                }
-            else
-                {
-                    NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:orderfile];
-                    NSArray *arradd = [[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
-                    [arrordered addObject:arradd];
-                    [arrordered writeToFile:orderfile atomically:YES];
-                }
-            labelpriceNull.text = NULL;
-            labelpeopleNull.text = NULL;
-            labelresNull.text = NULL;
-            labelcomboNull.text = NULL;
+        [self save];
     }
     else
     {

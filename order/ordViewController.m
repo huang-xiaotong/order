@@ -5,7 +5,6 @@
 //  Created by xyooyy on 14-9-18.
 //  Copyright (c) 2014年 黄晓彤. All rights reserved.
 //
-
 #import "ordViewController.h"
 #import "peopleViewController.h"
 
@@ -20,18 +19,26 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订单显示";
-    UITableView *DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)];
-    [DataTable setDelegate:self];
-    [DataTable setDataSource:self];
-    [self.view addSubview:DataTable];
-    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    NSString *path=[paths objectAtIndex:0];
-    NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
-    m_arrOrdered = [[NSArray alloc]initWithContentsOfFile:file];
+    [self datatable];
+    [self getdata];
 	arrpeople = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
     for (int i=0; i < m_arrOrdered.count; i++) {
         [arrpeople removeObject:m_arrOrdered[i][0]];
     }
+}
+-(void)datatable
+{
+    UITableView *DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)];
+    [DataTable setDelegate:self];
+    [DataTable setDataSource:self];
+    [self.view addSubview:DataTable];
+}
+-(void)getdata
+{
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *path=[paths objectAtIndex:0];
+    NSString *file=[path stringByAppendingPathComponent:@"ordered.plist"];
+    m_arrOrdered = [[NSArray alloc]initWithContentsOfFile:file];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0f;
@@ -56,11 +63,10 @@
 //每个section显示的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        int n = 6 - arrpeople.count;
+        int n = 6 - arrpeople.count;  
         return [NSString stringWithFormat:@"%d人已定",n];
     }
-    else 
-    {
+    else {
         int m = arrpeople.count;
        return [NSString stringWithFormat:@"%d人未定",m];
     }
@@ -84,24 +90,27 @@
     [scanner scanInt:&price];
     if (price > 12) {
         labelprice.textColor = [UIColor redColor];
-        
     }
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-static NSString *cellIdentifier = @"cell";
-   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-if (cell == nil){
-    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-    }
+-(void)tableviewcelllabel
+{
     //tableviewcell label labelprice:价格 labelres:餐厅 labelpeople:人 labelcombo:套餐
     labelprice = [self createCellLabel:CGRectMake(250, 20, 130, 20) :16];
     [cell.contentView addSubview:labelprice];
     labelres = [self createCellLabel:CGRectMake(10, 40, 60, 20) :12];
     [cell.contentView addSubview:labelres];
-     labelpeople = [self createCellLabel:CGRectMake(10, 15, 50, 20) :18];
-    [cell.contentView addSubview:labelpeople];  
+    labelpeople = [self createCellLabel:CGRectMake(10, 15, 50, 20) :18];
+    [cell.contentView addSubview:labelpeople];
     labelcombo = [self createCellLabel:CGRectMake(70, 40, 100, 20) :12];
     [cell.contentView addSubview:labelcombo];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+static NSString *cellIdentifier = @"cell";
+   cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+if (cell == nil){
+    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
+    [self tableviewcelllabel];
     if(indexPath.section == 0)
     {
         int i = 0;
@@ -119,7 +128,4 @@ if (cell == nil){
     }
     return cell;
 }
-
-
-
 @end

@@ -34,7 +34,6 @@
     rTableView.dataSource = self;    
     NSArray *arrayr = [[NSArray alloc]initWithObjects:@"KFC",@"7-11",@"成都小吃", nil];//创建数组
     self.listDatar = arrayr;
-	// Do any additional setup after loading the view.
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0f;

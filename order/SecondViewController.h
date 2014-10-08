@@ -16,5 +16,6 @@
     UILabel *labelresNull;
     UILabel *labelcomboNull;
     UILabel *labelpriceNull;
+    NSString *path;
 }
 @end

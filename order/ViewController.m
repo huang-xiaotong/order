@@ -24,6 +24,10 @@
     self.navigationController.navigationBar.barStyle =
     UIBarStyleBlackOpaque;
     self.view.backgroundColor = [UIColor whiteColor];
+    [self button];
+}
+-(void)button
+{
     UIButton *order = [self creatbutton:CGRectMake(10, 10, 300, 50):18:@"帮订餐"];
     [self.view addSubview:order];
     [order addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -44,7 +48,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark -

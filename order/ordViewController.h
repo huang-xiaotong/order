@@ -17,5 +17,6 @@
     UILabel *labelcombo;
     NSMutableArray *arrpeople;
     NSArray *m_arrOrdered;
+    UITableViewCell *cell;
 }
 @end
