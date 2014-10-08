@@ -71,22 +71,35 @@
     label.font = [UIFont boldSystemFontOfSize:fontSize];
     return label;
 }
+- (void) ordershow :(int)i
+{
+    labelpeople.text = m_arrOrdered[i][0];
+    labelres.text = m_arrOrdered[i][1];
+    labelcombo.text = m_arrOrdered[i][2];
+    labelprice.text = m_arrOrdered[i][3];
+    NSString *str = labelprice.text;
+    NSScanner *scanner = [NSScanner scannerWithString:str];
+    [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
+    int price;
+    [scanner scanInt:&price];
+    if (price > 12) {
+        labelprice.textColor = [UIColor redColor];
+        
+    }
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *cellIdentifier = @"cell";
    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 if (cell == nil){
     cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    //label4 价格
+    //tableviewcell label labelprice:价格 labelres:餐厅 labelpeople:人 labelcombo:套餐
     labelprice = [self createCellLabel:CGRectMake(250, 20, 130, 20) :16];
     [cell.contentView addSubview:labelprice];
-    //label2 餐厅
     labelres = [self createCellLabel:CGRectMake(10, 40, 60, 20) :12];
     [cell.contentView addSubview:labelres];
-    //label1 people
      labelpeople = [self createCellLabel:CGRectMake(10, 15, 50, 20) :18];
     [cell.contentView addSubview:labelpeople];  
-    //label3 套餐
     labelcombo = [self createCellLabel:CGRectMake(70, 40, 100, 20) :12];
     [cell.contentView addSubview:labelcombo];
     if(indexPath.section == 0)
@@ -94,18 +107,7 @@ if (cell == nil){
         int i = 0;
         while (i<m_arrOrdered.count) {
             if (indexPath.row == i) {
-                labelpeople.text = m_arrOrdered[i][0];
-                labelres.text = m_arrOrdered[i][1];
-                labelcombo.text = m_arrOrdered[i][2];
-                labelprice.text = m_arrOrdered[i][3];
-                NSString *str = labelprice.text;
-                NSScanner *scanner = [NSScanner scannerWithString:str];
-                [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
-                int price;
-                [scanner scanInt:&price];
-                if (price > 12) {
-                    labelprice.textColor = [UIColor redColor];
-                }
+                [self ordershow:i];
             }
             i++;
         }
