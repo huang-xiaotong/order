@@ -11,11 +11,12 @@
 @interface SecondViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource>
 {
-     UIScrollView *scrollView;
-    UILabel *labelpeopleNull;
-    UILabel *labelresNull;
-    UILabel *labelcomboNull;
-    UILabel *labelpriceNull;
-    NSString *path;
+     UIScrollView *m_scrollView;
+    UILabel *m_labelpeopleNull;
+    UILabel *m_labelresNull;
+    UILabel *m_labelcomboNull;
+    UILabel *m_labelpriceNull;
+    NSString *m_path;
+    NSString *m_orderfile;
 }
 @end

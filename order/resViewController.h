@@ -11,8 +11,8 @@
 @interface resViewController : UIViewController
 <UITableViewDataSource, UITableViewDelegate>
 {
-    UITableView *rTableView;
-    NSArray *listDatar;
+    UITableView *m_rTableView;
+    NSArray *m_listDatar;
 }
-@property (nonatomic, retain) NSArray *listDatar;
+@property (nonatomic, retain) NSArray *m_listDatar;
 @end

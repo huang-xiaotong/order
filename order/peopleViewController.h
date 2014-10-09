@@ -11,8 +11,8 @@
 @interface peopleViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource>
 {
-    UITableView *pTableView;
-    NSArray *listDatap;
+    UITableView *m_pTableView;
+    NSArray *m_listDatap;
 }
-@property (nonatomic, retain) NSArray *listDatap;
+@property (nonatomic, retain) NSArray *m_listDatap;
 @end

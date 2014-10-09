@@ -11,12 +11,12 @@
 @interface ordViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource>
 {
-    UILabel *labelres;
-    UILabel *labelprice;
-    UILabel *labelpeople;
-    UILabel *labelcombo;
-    NSMutableArray *arrpeople;
+    UILabel *m_labelres;
+    UILabel *m_labelprice;
+    UILabel *m_labelpeople;
+    UILabel *m_labelcombo;
+    NSMutableArray *m_arrpeople;
     NSArray *m_arrOrdered;
-    UITableViewCell *cell;
+    UITableViewCell *m_cell;
 }
 @end

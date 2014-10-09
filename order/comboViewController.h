@@ -11,10 +11,10 @@
 @interface comboViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource>
 {
-    UITableView *TableView;
-    NSArray *listData;
-    NSArray *listDatap;
+    UITableView *m_TableView;
+    NSArray *m_listData;
+    NSArray *m_listDatap;
 }
-@property (nonatomic, retain) NSArray *listData;
-@property (nonatomic, retain) NSArray *listDatap;
+@property (nonatomic, retain) NSArray *m_listData;
+@property (nonatomic, retain) NSArray *m_listDatap;
 @end

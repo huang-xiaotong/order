@@ -21,9 +21,9 @@
     self.title = @"订单显示";
     [self datatable];
     [self getdata];
-	arrpeople = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
+	m_arrpeople = [[NSMutableArray alloc]initWithObjects:@"赵大",@"钱二",@"张三",@"李四",@"王五", @"赵六", nil];//创建数组
     for (int i=0; i < m_arrOrdered.count; i++) {
-        [arrpeople removeObject:m_arrOrdered[i][0]];
+        [m_arrpeople removeObject:m_arrOrdered[i][0]];
     }
 }
 -(void)datatable
@@ -57,17 +57,17 @@
     if (section == 0) 
         return m_arrOrdered.count;
     if (section == 1) 
-        return arrpeople.count;
+        return m_arrpeople.count;
     return 0;
 }
 //每个section显示的标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        int n = 6 - arrpeople.count;  
+        int n = 6 - m_arrpeople.count;
         return [NSString stringWithFormat:@"%d人已定",n];
     }
     else {
-        int m = arrpeople.count;
+        int m = m_arrpeople.count;
        return [NSString stringWithFormat:@"%d人未定",m];
     }
 }
@@ -79,36 +79,36 @@
 }
 - (void) ordershow :(int)i
 {
-    labelpeople.text = m_arrOrdered[i][0];
-    labelres.text = m_arrOrdered[i][1];
-    labelcombo.text = m_arrOrdered[i][2];
-    labelprice.text = m_arrOrdered[i][3];
-    NSString *str = labelprice.text;
+    m_labelpeople.text = m_arrOrdered[i][0];
+    m_labelres.text = m_arrOrdered[i][1];
+    m_labelcombo.text = m_arrOrdered[i][2];
+    m_labelprice.text = m_arrOrdered[i][3];
+    NSString *str = m_labelprice.text;
     NSScanner *scanner = [NSScanner scannerWithString:str];
     [scanner scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:nil];
     int price;
     [scanner scanInt:&price];
     if (price > 12) {
-        labelprice.textColor = [UIColor redColor];
+        m_labelprice.textColor = [UIColor redColor];
     }
 }
 -(void)tableviewcelllabel
 {
     //tableviewcell label labelprice:价格 labelres:餐厅 labelpeople:人 labelcombo:套餐
-    labelprice = [self createCellLabel:CGRectMake(250, 20, 130, 20) :16];
-    [cell.contentView addSubview:labelprice];
-    labelres = [self createCellLabel:CGRectMake(10, 40, 60, 20) :12];
-    [cell.contentView addSubview:labelres];
-    labelpeople = [self createCellLabel:CGRectMake(10, 15, 50, 20) :18];
-    [cell.contentView addSubview:labelpeople];
-    labelcombo = [self createCellLabel:CGRectMake(70, 40, 100, 20) :12];
-    [cell.contentView addSubview:labelcombo];
+    m_labelprice = [self createCellLabel:CGRectMake(250, 20, 130, 20) :16];
+    [m_cell.contentView addSubview:m_labelprice];
+    m_labelres = [self createCellLabel:CGRectMake(10, 40, 60, 20) :12];
+    [m_cell.contentView addSubview:m_labelres];
+    m_labelpeople = [self createCellLabel:CGRectMake(10, 15, 50, 20) :18];
+    [m_cell.contentView addSubview:m_labelpeople];
+    m_labelcombo = [self createCellLabel:CGRectMake(70, 40, 100, 20) :12];
+    [m_cell.contentView addSubview:m_labelcombo];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 static NSString *cellIdentifier = @"cell";
-   cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-if (cell == nil){
-    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+   m_cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+if (m_cell == nil){
+    m_cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     [self tableviewcelllabel];
     if(indexPath.section == 0)
@@ -124,8 +124,8 @@ if (cell == nil){
     else 
     {
         NSUInteger row = [indexPath row];
-        labelpeople.text = [arrpeople objectAtIndex:row];
+        m_labelpeople.text = [m_arrpeople objectAtIndex:row];
     }
-    return cell;
+    return m_cell;
 }
 @end

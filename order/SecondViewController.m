@@ -25,56 +25,40 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订餐";
-    scrollView = [self scrollView];
-    [self center];
-    [self people];
-    [self restaurant];
-    [self combo];
-    [self price];
-    [self sure];
+    m_scrollView = [self scrollView:CGRectMake(0, 0, 320, 460) :CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2)];
+    [self notification:@selector(peoHandleInfo:) :@"peoInfo" :@selector(resHandleInfo:) :@"resInfo" :@selector(comHandleInfo:) :@"comInfo" :@selector(priceHandleInfo:) :@"priceInfo"];
+    [self selectorderonegroupdata:CGRectMake(15, 15, 30, 20) :16 :@"人:" :CGRectMake(20, 90, 280, 50) :18 :@"选人" :@selector(people:)];
+    [self selectorderonegroupdata:CGRectMake(15, 160, 40, 20) :16 :@"餐厅:" :CGRectMake(20, 240, 280, 50) :18 :@"选餐厅" :@selector(res:)];
+    [self selectorderonegroupdata:CGRectMake(15, 310, 40, 20) :16 :@"套餐:" :CGRectMake(20, 390, 280, 50) :18 :@"选套餐" :@selector(combo:)];
+    [self selectorderonegrouplabelnulldata:CGRectMake(20, 40, 280, 40) :16 :NULL :CGRectMake(20, 190, 280, 40) :CGRectMake(20, 340, 280, 40)];
+    [self sure:CGRectMake(20, 440, 280, 50) :18 :@"确定" :@selector(sure:)];
 }
-- (void)people
+-(void) selectorderonegroupdata:(CGRect)framelabel :(double)fontsizelabel :(NSString*)titlelabel :(CGRect)framebutton :(double)fontsizebutton :(NSString*)titlebutton :(void*)action
 {
-    UILabel *labelpeople = [self createLabel:CGRectMake(15, 15, 30, 20) :16 :@"人:" ];
-    [scrollView addSubview:labelpeople];
-    labelpeopleNull = [self createLabel:CGRectMake(20, 40, 280, 40) :16 :NULL];
-    labelpeopleNull.backgroundColor = [UIColor lightGrayColor];
-    [scrollView addSubview:labelpeopleNull];
-    UIButton *butpeople = [self creatbutton:CGRectMake(20, 90, 280, 50) :18 :@"选人"];
-    [scrollView addSubview:butpeople];
-    [butpeople addTarget:self action:@selector(people:) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *selectorderlabel = [self createLabel:framelabel :fontsizelabel :titlelabel];
+    [m_scrollView addSubview:selectorderlabel];
+    UIButton *selectorderbutton = [self creatbutton:framebutton :fontsizebutton :titlebutton];
+    [m_scrollView addSubview:selectorderbutton];
+    [selectorderbutton addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
 }
-- (void)restaurant
+-(void) selectorderonegrouplabelnulldata:(CGRect)firstlabelnull :(double)labelnullfontsize :(NSString*)labelnulltitle :(CGRect)secondlabelnull :(CGRect)thirdlabelnull
 {
-    UILabel *labelres = [self createLabel:CGRectMake(15, 160, 40, 20) :16 :@"餐厅:"];
-    [scrollView addSubview:labelres];
-    labelresNull = [self createLabel:CGRectMake(20, 190, 280, 40) :16 :NULL];
-    labelresNull.backgroundColor = [UIColor lightGrayColor];
-    [scrollView addSubview:labelresNull];
-    UIButton *butres = [self creatbutton:CGRectMake(20, 240, 280, 50) :18 :@"选餐厅"];
-    [scrollView addSubview:butres];
-    [butres addTarget:self action:@selector(res:) forControlEvents:UIControlEventTouchUpInside];
+    m_labelpeopleNull = [self createLabel:firstlabelnull :labelnullfontsize :labelnulltitle];
+    [m_scrollView addSubview:m_labelpeopleNull];
+    m_labelpeopleNull.backgroundColor = [UIColor lightGrayColor];
+    m_labelresNull = [self createLabel:secondlabelnull :labelnullfontsize :labelnulltitle];
+    [m_scrollView addSubview:m_labelresNull];
+    m_labelresNull.backgroundColor = [UIColor lightGrayColor];
+    m_labelcomboNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
+    [m_scrollView addSubview: m_labelcomboNull];
+    m_labelcomboNull.backgroundColor = [UIColor lightGrayColor];
+    m_labelpriceNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
 }
-- (void)combo
+- (void)sure :(CGRect)frame :(double)fontsize :(NSString*)title :(void*)action
 {
-    UILabel *labelcombo = [self createLabel:CGRectMake(15, 310, 40, 20) :16 :@"套餐:"];
-    [scrollView addSubview:labelcombo];
-    labelcomboNull = [self createLabel:CGRectMake(20, 340, 280, 40) :16 :NULL];
-    labelcomboNull.backgroundColor = [UIColor lightGrayColor];
-    [scrollView addSubview:labelcomboNull];
-    UIButton *butcombo = [self creatbutton:CGRectMake(20, 390, 280, 50) :18 :@"选套餐"];
-    [scrollView addSubview:butcombo];
-    [butcombo addTarget:self action:@selector(combo:) forControlEvents:UIControlEventTouchUpInside];
-}
--(void)price
-{
-    labelpriceNull = [self createLabel:CGRectMake(20, 340, 280, 40) :16 :NULL];
-}
-- (void)sure
-{
-    UIButton *sure = [self creatbutton:CGRectMake(20, 440, 280, 50) :18 :@"确定"];
-    [scrollView addSubview:sure];
-    [sure addTarget:self action:@selector(sure:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *sure = [self creatbutton:frame :fontsize :title];
+    [m_scrollView addSubview:sure];
+    [sure addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
 }
 - (UILabel *)createLabel:(CGRect)frame :(double)fontSize :(NSString *)title
 {
@@ -93,30 +77,29 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     return button;
 }
-- (NSNotificationCenter *)center
+-(void) notification :(void*)peoplevalue :(NSString*)peoinfo :(void*)resvalue : (NSString*)resinfo :(void*)combovalue :(NSString*)cominfo :(void*)pricevalue :(NSString*)priceinfo
 {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];  [center addObserver:self selector:@selector(peoHandleInfo:) name:@"logInfo" object:nil];
-    [center addObserver:self selector:@selector(resHandleInfo:) name:@"resInfo" object:nil];
-    [center addObserver:self selector:@selector(comHandleInfo:) name:@"comInfo" object:nil];
-    [center addObserver:self selector:@selector(comboHandleInfo:) name:@"comboInfo" object:nil];
-    return center;
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:peoplevalue name:peoinfo object:nil];
+    [center addObserver:self selector:resvalue name:resinfo object:nil];
+    [center addObserver:self selector:combovalue name:cominfo object:nil];
+    [center addObserver:self selector:pricevalue name:priceinfo object:nil];
 }
 -(void)back
 {
     NSArray *ay=self.navigationController.viewControllers;
     [self.navigationController popToViewController:[ay objectAtIndex:0] animated:YES];
 }
-- (UIScrollView *)scrollView
+- (UIScrollView *)scrollView :(CGRect)frame :(CGSize)contentsize
 {
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
-    scrollView.contentSize = CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2);
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:frame];
+    scrollView.contentSize = contentsize;
     scrollView.directionalLockEnabled = YES;
     [self.view addSubview:scrollView];
     scrollView.delegate = self;
     scrollView.delaysContentTouches=YES;
     return scrollView;
 }
-
 - (void)people:(id)sender{
     peopleViewController *nextController = [[peopleViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
@@ -142,37 +125,63 @@ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:message 
 }
 -(void)judge
 {
-    NSString *orderfile=[path stringByAppendingPathComponent:@"ordered.plist"];
+    NSString *orderfile=[m_path stringByAppendingPathComponent:@"ordered.plist"];
     NSFileManager *ordered = [NSFileManager defaultManager];
     if (![[NSFileManager defaultManager] fileExistsAtPath:orderfile])
     {
         [ordered createFileAtPath:orderfile contents:nil attributes:nil];
-        NSArray *arrorder =[[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
+        NSArray *arrorder =[[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
         NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
         [arrord writeToFile:orderfile atomically:YES];
     }
     else
     {
         NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:orderfile];
-        NSArray *arradd = [[NSArray alloc]initWithObjects:labelpeopleNull.text, labelresNull.text, labelcomboNull.text, labelpriceNull.text, nil];
+        NSArray *arradd = [[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
         [arrordered addObject:arradd];
         [arrordered writeToFile:orderfile atomically:YES];
+    }
+}
+-(void) notexistfile
+{
+    m_orderfile=[m_path stringByAppendingPathComponent:@"ordered.plist"];
+    NSFileManager *ordered = [NSFileManager defaultManager];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:m_orderfile])
+    {
+        [ordered createFileAtPath:m_orderfile contents:nil attributes:nil];
+        NSArray *arrorder =[[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
+        NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
+        [arrord writeToFile:m_orderfile atomically:YES];
+    }
+}
+-(void) existfile
+{
+//    NSString *orderfile=[m_path stringByAppendingPathComponent:@"ordered.plist"];
+//    NSFileManager *ordered = [NSFileManager defaultManager];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:m_orderfile])
+    {
+        NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:m_orderfile];
+        NSArray *arradd = [[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
+        [arrordered addObject:arradd];
+        [arrordered writeToFile:m_orderfile atomically:YES];
     }
 }
 -(void)save
 {
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    path=[paths objectAtIndex:0];
+//    NSLog(@"%@",paths);
+    m_path=[paths objectAtIndex:0];
     [self judge];
-    labelpriceNull.text = NULL;
-    labelpeopleNull.text = NULL;
-    labelresNull.text = NULL;
-    labelcomboNull.text = NULL;
+    m_labelpriceNull.text = NULL;
+    m_labelpeopleNull.text = NULL;
+    m_labelresNull.text = NULL;
+    m_labelcomboNull.text = NULL;
 
 }
-- (void)sure:(id)sender{
+- (void)sure:(id)sender
+{
     //保存数据
-    if (labelpeopleNull.text != NULL & labelpriceNull.text != NULL & labelcomboNull.text != NULL)
+    if (m_labelpeopleNull.text != NULL & m_labelpriceNull.text != NULL & m_labelcomboNull.text != NULL)
     {
         [self save];
     }
@@ -184,18 +193,21 @@ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:message 
 }
 -(void)peoHandleInfo:(NSNotification *)notification{
     NSString *data = [notification object];
-    labelpeopleNull.text = data;
+    m_labelpeopleNull.text = data;
+//    NSLog(@"%@",m_labelpeopleNull.text);
+
 }
 -(void)resHandleInfo:(NSNotification *)notification{
     NSString *datar = [notification object];
-    labelresNull.text = datar;
+    m_labelresNull.text = datar;
 }
 -(void)comHandleInfo:(NSNotification *)notification{
     NSString *datac = [notification object];
-    labelcomboNull.text = datac;
+    m_labelcomboNull.text = datac;
 }
--(void)comboHandleInfo:(NSNotification *)notification{
+-(void)priceHandleInfo:(NSNotification *)notification{
     NSString *datap = [notification object];
-    labelpriceNull.text = datap;
+    m_labelpriceNull.text = datap;
+//    NSLog(@"%@",m_labelpriceNull.text);
 }
 @end
