@@ -53,9 +53,6 @@
 #pragma mark -
 //实现TableView数据源方法
 #pragma mark Table View Data Source Methods
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
 
 #pragma mark -
 #pragma mark Table View Delegate Methods

@@ -15,10 +15,7 @@
 @interface SecondViewController ()
 
 @end
-
-
 @implementation SecondViewController
-
 
 - (void)viewDidLoad
 {
@@ -142,45 +139,18 @@ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:message 
         [arrordered writeToFile:orderfile atomically:YES];
     }
 }
--(void) notexistfile
-{
-    m_orderfile=[m_path stringByAppendingPathComponent:@"ordered.plist"];
-    NSFileManager *ordered = [NSFileManager defaultManager];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:m_orderfile])
-    {
-        [ordered createFileAtPath:m_orderfile contents:nil attributes:nil];
-        NSArray *arrorder =[[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
-        NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
-        [arrord writeToFile:m_orderfile atomically:YES];
-    }
-}
--(void) existfile
-{
-//    NSString *orderfile=[m_path stringByAppendingPathComponent:@"ordered.plist"];
-//    NSFileManager *ordered = [NSFileManager defaultManager];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:m_orderfile])
-    {
-        NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:m_orderfile];
-        NSArray *arradd = [[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
-        [arrordered addObject:arradd];
-        [arrordered writeToFile:m_orderfile atomically:YES];
-    }
-}
 -(void)save
 {
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-//    NSLog(@"%@",paths);
     m_path=[paths objectAtIndex:0];
     [self judge];
     m_labelpriceNull.text = NULL;
     m_labelpeopleNull.text = NULL;
     m_labelresNull.text = NULL;
     m_labelcomboNull.text = NULL;
-
 }
 - (void)sure:(id)sender
 {
-    //保存数据
     if (m_labelpeopleNull.text != NULL & m_labelpriceNull.text != NULL & m_labelcomboNull.text != NULL)
     {
         [self save];

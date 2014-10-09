@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A16557019E6651B003D7702 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16556F19E6651B003D7702 /* SecondViewController.m */; };
+		9A16557619E68024003D7702 /* orderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16557519E68024003D7702 /* orderView.m */; };
+		9A16557D19E68231003D7702 /* order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16557C19E68231003D7702 /* order.m */; };
 		9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E519CACC2100B24786 /* peopleViewController.m */; };
 		9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E819CAD3F700B24786 /* resViewController.m */; };
 		9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1EB19CAD59000B24786 /* comboViewController.m */; };
@@ -27,6 +29,10 @@
 
 /* Begin PBXFileReference section */
 		9A16556F19E6651B003D7702 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		9A16557419E68024003D7702 /* orderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = orderView.h; path = order/orderView.h; sourceTree = "<group>"; };
+		9A16557519E68024003D7702 /* orderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = orderView.m; path = order/orderView.m; sourceTree = "<group>"; };
+		9A16557B19E6820A003D7702 /* order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = order.h; sourceTree = "<group>"; };
+		9A16557C19E68231003D7702 /* order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = order.m; sourceTree = "<group>"; };
 		9A48F1E419CACC2100B24786 /* peopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = peopleViewController.h; sourceTree = "<group>"; };
 		9A48F1E519CACC2100B24786 /* peopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = peopleViewController.m; sourceTree = "<group>"; };
 		9A48F1E719CAD3F700B24786 /* resViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resViewController.h; sourceTree = "<group>"; };
@@ -68,6 +74,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A16557819E680D0003D7702 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9A16557419E68024003D7702 /* orderView.h */,
+				9A16557519E68024003D7702 /* orderView.m */,
+			);
+			name = view;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		9A16557E19E6825E003D7702 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9A16557B19E6820A003D7702 /* order.h */,
+				9A16557C19E68231003D7702 /* order.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		9A16557F19E68280003D7702 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A97A19E19C9B3050028A373 /* ViewController.h */,
+				9A97A19F19C9B3050028A373 /* ViewController.m */,
+				9A97A1A619C9D0C30028A373 /* SecondViewController.h */,
+				9A16556F19E6651B003D7702 /* SecondViewController.m */,
+				9A48F1E419CACC2100B24786 /* peopleViewController.h */,
+				9A48F1E519CACC2100B24786 /* peopleViewController.m */,
+				9A48F1E719CAD3F700B24786 /* resViewController.h */,
+				9A48F1E819CAD3F700B24786 /* resViewController.m */,
+				9A48F1EA19CAD59000B24786 /* comboViewController.h */,
+				9A48F1EB19CAD59000B24786 /* comboViewController.m */,
+				9A48F1ED19CAE07B00B24786 /* ordViewController.h */,
+				9A48F1EE19CAE07B00B24786 /* ordViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 		9A97A17719C9B3050028A373 = {
 			isa = PBXGroup;
 			children = (
@@ -98,21 +142,12 @@
 		9A97A18919C9B3050028A373 /* order */ = {
 			isa = PBXGroup;
 			children = (
+				9A16557F19E68280003D7702 /* controller */,
+				9A16557E19E6825E003D7702 /* model */,
+				9A16557819E680D0003D7702 /* view */,
 				9A97A19219C9B3050028A373 /* AppDelegate.h */,
 				9A97A19319C9B3050028A373 /* AppDelegate.m */,
 				9A97A19B19C9B3050028A373 /* MainStoryboard.storyboard */,
-				9A97A19E19C9B3050028A373 /* ViewController.h */,
-				9A97A19F19C9B3050028A373 /* ViewController.m */,
-				9A97A1A619C9D0C30028A373 /* SecondViewController.h */,
-				9A16556F19E6651B003D7702 /* SecondViewController.m */,
-				9A48F1E419CACC2100B24786 /* peopleViewController.h */,
-				9A48F1E519CACC2100B24786 /* peopleViewController.m */,
-				9A48F1E719CAD3F700B24786 /* resViewController.h */,
-				9A48F1E819CAD3F700B24786 /* resViewController.m */,
-				9A48F1EA19CAD59000B24786 /* comboViewController.h */,
-				9A48F1EB19CAD59000B24786 /* comboViewController.m */,
-				9A48F1ED19CAE07B00B24786 /* ordViewController.h */,
-				9A48F1EE19CAE07B00B24786 /* ordViewController.m */,
 				9A97A18A19C9B3050028A373 /* Supporting Files */,
 			);
 			path = order;
@@ -206,6 +241,8 @@
 				9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */,
 				9A48F1EF19CAE07C00B24786 /* ordViewController.m in Sources */,
 				9A16557019E6651B003D7702 /* SecondViewController.m in Sources */,
+				9A16557619E68024003D7702 /* orderView.m in Sources */,
+				9A16557D19E68231003D7702 /* order.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

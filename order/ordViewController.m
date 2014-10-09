@@ -68,7 +68,7 @@
     }
     else {
         int m = m_arrpeople.count;
-       return [NSString stringWithFormat:@"%d人未定",m];
+        return [NSString stringWithFormat:@"%d人未定",m];
     }
 }
 - (UILabel *)createCellLabel:(CGRect)frame :(double)fontSize
@@ -105,10 +105,11 @@
     [m_cell.contentView addSubview:m_labelcombo];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-static NSString *cellIdentifier = @"cell";
-   m_cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-if (m_cell == nil){
-    m_cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"cell";
+    m_cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (m_cell == nil)
+    {
+        m_cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     [self tableviewcelllabel];
     if(indexPath.section == 0)
@@ -121,7 +122,7 @@ if (m_cell == nil){
             i++;
         }
     }
-    else 
+    else
     {
         NSUInteger row = [indexPath row];
         m_labelpeople.text = [m_arrpeople objectAtIndex:row];
