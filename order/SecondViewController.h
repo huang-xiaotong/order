@@ -16,7 +16,7 @@
     UILabel *m_labelresNull;
     UILabel *m_labelcomboNull;
     UILabel *m_labelpriceNull;
-    NSString *m_path;
+//    NSString *m_path;
     NSString *m_orderfile;
 }
 @end

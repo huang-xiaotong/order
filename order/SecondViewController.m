@@ -12,6 +12,7 @@
 #import "comboViewController.h"
 #import "ordViewController.h"
 #import "ViewController.h"
+#import "order.h"
 @interface SecondViewController ()
 
 @end
@@ -30,6 +31,7 @@
     [self selectorderonegrouplabelnulldata:CGRectMake(20, 40, 280, 40) :16 :NULL :CGRectMake(20, 190, 280, 40) :CGRectMake(20, 340, 280, 40)];
     [self sure:CGRectMake(20, 440, 280, 50) :18 :@"确定" :@selector(sure:)];
 }
+
 -(void) selectorderonegroupdata:(CGRect)framelabel :(double)fontsizelabel :(NSString*)titlelabel :(CGRect)framebutton :(double)fontsizebutton :(NSString*)titlebutton :(void*)action
 {
     UILabel *selectorderlabel = [self createLabel:framelabel :fontsizelabel :titlelabel];
@@ -120,30 +122,10 @@
 UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:@"请重新选择" otherButtonTitles:nil, nil];
     return alert;
 }
--(void)judge
+-(void)selectsure
 {
-    NSString *orderfile=[m_path stringByAppendingPathComponent:@"ordered.plist"];
-    NSFileManager *ordered = [NSFileManager defaultManager];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:orderfile])
-    {
-        [ordered createFileAtPath:orderfile contents:nil attributes:nil];
-        NSArray *arrorder =[[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
-        NSArray *arrord = [[NSArray alloc]initWithObjects:arrorder, nil];
-        [arrord writeToFile:orderfile atomically:YES];
-    }
-    else
-    {
-        NSMutableArray *arrordered = [NSArray arrayWithContentsOfFile:orderfile];
-        NSArray *arradd = [[NSArray alloc]initWithObjects:m_labelpeopleNull.text, m_labelresNull.text, m_labelcomboNull.text, m_labelpriceNull.text, nil];
-        [arrordered addObject:arradd];
-        [arrordered writeToFile:orderfile atomically:YES];
-    }
-}
--(void)save
-{
-    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    m_path=[paths objectAtIndex:0];
-    [self judge];
+    order *orderClassObject = [[order alloc]init];
+    [orderClassObject save:m_labelpeopleNull.text :m_labelresNull.text :m_labelcomboNull.text :m_labelpriceNull.text];
     m_labelpriceNull.text = NULL;
     m_labelpeopleNull.text = NULL;
     m_labelresNull.text = NULL;
@@ -153,7 +135,7 @@ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:message 
 {
     if (m_labelpeopleNull.text != NULL & m_labelpriceNull.text != NULL & m_labelcomboNull.text != NULL)
     {
-        [self save];
+        [self selectsure];
     }
     else
     {

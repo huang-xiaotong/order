@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface order : NSObject
+{
 
-
+}
+-(void)save:(NSString*)peopletext :(NSString*)restext :(NSString*)combotext :(NSString*)pricetext;
 @end
