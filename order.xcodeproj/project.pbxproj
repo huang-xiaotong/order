@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9A16557019E6651B003D7702 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16556F19E6651B003D7702 /* SecondViewController.m */; };
-		9A16557619E68024003D7702 /* orderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16557519E68024003D7702 /* orderView.m */; };
+		9A16557619E68024003D7702 /* ordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16557519E68024003D7702 /* ordView.m */; };
 		9A16557D19E68231003D7702 /* order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16557C19E68231003D7702 /* order.m */; };
 		9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E519CACC2100B24786 /* peopleViewController.m */; };
 		9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E819CAD3F700B24786 /* resViewController.m */; };
 		9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1EB19CAD59000B24786 /* comboViewController.m */; };
 		9A48F1EF19CAE07C00B24786 /* ordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1EE19CAE07B00B24786 /* ordViewController.m */; };
+		9A70773D19E8D9430071190D /* SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A70773C19E8D9430071190D /* SecondView.m */; };
 		9A97A18419C9B3050028A373 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18319C9B3050028A373 /* UIKit.framework */; };
 		9A97A18619C9B3050028A373 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18519C9B3050028A373 /* Foundation.framework */; };
 		9A97A18819C9B3050028A373 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18719C9B3050028A373 /* CoreGraphics.framework */; };
@@ -29,8 +30,8 @@
 
 /* Begin PBXFileReference section */
 		9A16556F19E6651B003D7702 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		9A16557419E68024003D7702 /* orderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = orderView.h; path = order/orderView.h; sourceTree = "<group>"; };
-		9A16557519E68024003D7702 /* orderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = orderView.m; path = order/orderView.m; sourceTree = "<group>"; };
+		9A16557419E68024003D7702 /* ordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ordView.h; path = order/ordView.h; sourceTree = "<group>"; };
+		9A16557519E68024003D7702 /* ordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ordView.m; path = order/ordView.m; sourceTree = "<group>"; };
 		9A16557B19E6820A003D7702 /* order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = order.h; sourceTree = "<group>"; };
 		9A16557C19E68231003D7702 /* order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = order.m; sourceTree = "<group>"; };
 		9A48F1E419CACC2100B24786 /* peopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = peopleViewController.h; sourceTree = "<group>"; };
@@ -41,6 +42,8 @@
 		9A48F1EB19CAD59000B24786 /* comboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comboViewController.m; sourceTree = "<group>"; };
 		9A48F1ED19CAE07B00B24786 /* ordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ordViewController.h; sourceTree = "<group>"; };
 		9A48F1EE19CAE07B00B24786 /* ordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ordViewController.m; sourceTree = "<group>"; };
+		9A70773B19E8D9430071190D /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondView.h; path = order/SecondView.h; sourceTree = "<group>"; };
+		9A70773C19E8D9430071190D /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondView.m; path = order/SecondView.m; sourceTree = "<group>"; };
 		9A97A18019C9B3050028A373 /* order.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = order.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A97A18319C9B3050028A373 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A97A18519C9B3050028A373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,8 +80,10 @@
 		9A16557819E680D0003D7702 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				9A16557419E68024003D7702 /* orderView.h */,
-				9A16557519E68024003D7702 /* orderView.m */,
+				9A16557419E68024003D7702 /* ordView.h */,
+				9A16557519E68024003D7702 /* ordView.m */,
+				9A70773B19E8D9430071190D /* SecondView.h */,
+				9A70773C19E8D9430071190D /* SecondView.m */,
 			);
 			name = view;
 			path = ..;
@@ -241,8 +246,9 @@
 				9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */,
 				9A48F1EF19CAE07C00B24786 /* ordViewController.m in Sources */,
 				9A16557019E6651B003D7702 /* SecondViewController.m in Sources */,
-				9A16557619E68024003D7702 /* orderView.m in Sources */,
+				9A16557619E68024003D7702 /* ordView.m in Sources */,
 				9A16557D19E68231003D7702 /* order.m in Sources */,
+				9A70773D19E8D9430071190D /* SecondView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

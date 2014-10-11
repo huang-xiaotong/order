@@ -49,11 +49,6 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-#pragma mark -
-//实现TableView数据源方法
-#pragma mark Table View Data Source Methods
-
 #pragma mark -
 #pragma mark Table View Delegate Methods
 - (void)onClick:(id)sender{

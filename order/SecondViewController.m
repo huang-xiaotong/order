@@ -13,6 +13,7 @@
 #import "ordViewController.h"
 #import "ViewController.h"
 #import "order.h"
+#import "SecondView.h"
 @interface SecondViewController ()
 
 @end
@@ -23,59 +24,69 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订餐";
-    m_scrollView = [self scrollView:CGRectMake(0, 0, 320, 460) :CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2)];
+//    m_scrollView = [self scrollView:CGRectMake(0, 0, 320, 460) :CGSizeMake( self.view.bounds.size.width, self.view.bounds.size.height * 1.2)];
     [self notification:@selector(peoHandleInfo:) :@"peoInfo" :@selector(resHandleInfo:) :@"resInfo" :@selector(comHandleInfo:) :@"comInfo" :@selector(priceHandleInfo:) :@"priceInfo"];
-    [self selectorderonegroupdata:CGRectMake(15, 15, 30, 20) :16 :@"人:" :CGRectMake(20, 90, 280, 50) :18 :@"选人" :@selector(people:)];
-    [self selectorderonegroupdata:CGRectMake(15, 160, 40, 20) :16 :@"餐厅:" :CGRectMake(20, 240, 280, 50) :18 :@"选餐厅" :@selector(res:)];
-    [self selectorderonegroupdata:CGRectMake(15, 310, 40, 20) :16 :@"套餐:" :CGRectMake(20, 390, 280, 50) :18 :@"选套餐" :@selector(combo:)];
-    [self selectorderonegrouplabelnulldata:CGRectMake(20, 40, 280, 40) :16 :NULL :CGRectMake(20, 190, 280, 40) :CGRectMake(20, 340, 280, 40)];
-    [self sure:CGRectMake(20, 440, 280, 50) :18 :@"确定" :@selector(sure:)];
-}
 
--(void) selectorderonegroupdata:(CGRect)framelabel :(double)fontsizelabel :(NSString*)titlelabel :(CGRect)framebutton :(double)fontsizebutton :(NSString*)titlebutton :(void*)action
-{
-    UILabel *selectorderlabel = [self createLabel:framelabel :fontsizelabel :titlelabel];
-    [m_scrollView addSubview:selectorderlabel];
-    UIButton *selectorderbutton = [self creatbutton:framebutton :fontsizebutton :titlebutton];
-    [m_scrollView addSubview:selectorderbutton];
-    [selectorderbutton addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+//    [self selectorderonegroupdata:CGRectMake(15, 15, 30, 20) :16 :@"人:"];
+//    [self selectorderonegroupdata:CGRectMake(15, 160, 40, 20) :16 :@"餐厅:"];
+//    [self selectorderonegroupdata:CGRectMake(15, 310, 40, 20) :16 :@"套餐:"];
+//    [self selectorderonegrouplabelnulldata:CGRectMake(20, 40, 280, 40) :16 :NULL :CGRectMake(20, 190, 280, 40) :CGRectMake(20, 340, 280, 40)];
+//    [self selectorderonegroupbuttondata:CGRectMake(20, 90, 280, 50) :18 :@"选人" :CGRectMake(20, 240, 280, 50) :18 :@"选餐厅" :CGRectMake(20, 390, 280, 50) :18 :@"选套餐" :CGRectMake(20, 440, 280, 50) :18 :@"确定"];
 }
--(void) selectorderonegrouplabelnulldata:(CGRect)firstlabelnull :(double)labelnullfontsize :(NSString*)labelnulltitle :(CGRect)secondlabelnull :(CGRect)thirdlabelnull
-{
-    m_labelpeopleNull = [self createLabel:firstlabelnull :labelnullfontsize :labelnulltitle];
-    [m_scrollView addSubview:m_labelpeopleNull];
-    m_labelpeopleNull.backgroundColor = [UIColor lightGrayColor];
-    m_labelresNull = [self createLabel:secondlabelnull :labelnullfontsize :labelnulltitle];
-    [m_scrollView addSubview:m_labelresNull];
-    m_labelresNull.backgroundColor = [UIColor lightGrayColor];
-    m_labelcomboNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
-    [m_scrollView addSubview: m_labelcomboNull];
-    m_labelcomboNull.backgroundColor = [UIColor lightGrayColor];
-    m_labelpriceNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
-}
-- (void)sure :(CGRect)frame :(double)fontsize :(NSString*)title :(void*)action
-{
-    UIButton *sure = [self creatbutton:frame :fontsize :title];
-    [m_scrollView addSubview:sure];
-    [sure addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
-}
-- (UILabel *)createLabel:(CGRect)frame :(double)fontSize :(NSString *)title
-{
-    UILabel *label = [[UILabel alloc]initWithFrame:frame];
-    label.font = [UIFont boldSystemFontOfSize:fontSize];
-    label.text = title;
-    return label;
-}
-- (UIButton *) creatbutton: (CGRect)frame :(double)fontSize :(NSString*)setTitle
-{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = frame;
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:fontSize];
-    [button setTitle:setTitle forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor clearColor];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    return button;
-}
+//-(void) selectorderonegroupdata:(CGRect)framelabel :(double)fontsizelabel :(NSString*)titlelabel
+//{
+//    UILabel *selectorderlabel = [self createLabel:framelabel :fontsizelabel :titlelabel];
+//    [m_scrollView addSubview:selectorderlabel];
+//}
+//-(void) selectorderonegroupbuttondata:(CGRect)framepeoplebutton :(double)fontsizepeoplebutton :(NSString*)titlepeoplebutton :(CGRect)frameresbutton :(double)fontsizeresbutton :(NSString*)titleresbutton :(CGRect)framecombobutton :(double)fontsizecombobutton :(NSString*)titlecombobutton
+//:(CGRect)framesure :(double)fontsizesure :(NSString*)titlesure
+//{
+//    UIButton *peoplebutton = [self creatbutton:framepeoplebutton :fontsizepeoplebutton :titlepeoplebutton];
+//    [m_scrollView addSubview:peoplebutton];
+//    UIButton *resbutton = [self creatbutton:frameresbutton :fontsizeresbutton :titleresbutton];
+//    [m_scrollView addSubview:resbutton];
+//    UIButton *combobutton = [self creatbutton:framecombobutton :fontsizecombobutton :titlecombobutton];
+//    [m_scrollView addSubview:combobutton];
+//    UIButton *sure = [self creatbutton:framesure :fontsizesure :titlesure];
+//    [m_scrollView addSubview:sure];
+//    
+//}
+//-(void) selectorderonegrouplabelnulldata:(CGRect)firstlabelnull :(double)labelnullfontsize :(NSString*)labelnulltitle :(CGRect)secondlabelnull :(CGRect)thirdlabelnull
+//{
+//    m_labelpeopleNull = [self createLabel:firstlabelnull :labelnullfontsize :labelnulltitle];
+//    [m_scrollView addSubview:m_labelpeopleNull];
+//    m_labelpeopleNull.backgroundColor = [UIColor lightGrayColor];
+//    m_labelresNull = [self createLabel:secondlabelnull :labelnullfontsize :labelnulltitle];
+//    [m_scrollView addSubview:m_labelresNull];
+//    m_labelresNull.backgroundColor = [UIColor lightGrayColor];
+//    m_labelcomboNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
+//    [m_scrollView addSubview: m_labelcomboNull];
+//    m_labelcomboNull.backgroundColor = [UIColor lightGrayColor];
+//    m_labelpriceNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
+//}
+//- (void)sure :(CGRect)frame :(double)fontsize :(NSString*)title :(void*)action
+//{
+//    UIButton *sure = [self creatbutton:frame :fontsize :title];
+//    [m_scrollView addSubview:sure];
+//    [sure addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+//}
+//- (UILabel *)createLabel:(CGRect)frame :(double)fontSize :(NSString *)title
+//{
+//    UILabel *label = [[UILabel alloc]initWithFrame:frame];
+//    label.font = [UIFont boldSystemFontOfSize:fontSize];
+//    label.text = title;
+//    return label;
+//}
+//- (UIButton *) creatbutton: (CGRect)frame :(double)fontSize :(NSString*)setTitle
+//{
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    button.frame = frame;
+//    button.titleLabel.font = [UIFont boldSystemFontOfSize:fontSize];
+//    [button setTitle:setTitle forState:UIControlStateNormal];
+//    button.backgroundColor = [UIColor clearColor];
+//    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    return button;
+//}
 -(void) notification :(void*)peoplevalue :(NSString*)peoinfo :(void*)resvalue : (NSString*)resinfo :(void*)combovalue :(NSString*)cominfo :(void*)pricevalue :(NSString*)priceinfo
 {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -89,16 +100,16 @@
     NSArray *ay=self.navigationController.viewControllers;
     [self.navigationController popToViewController:[ay objectAtIndex:0] animated:YES];
 }
-- (UIScrollView *)scrollView :(CGRect)frame :(CGSize)contentsize
-{
-    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:frame];
-    scrollView.contentSize = contentsize;
-    scrollView.directionalLockEnabled = YES;
-    [self.view addSubview:scrollView];
-    scrollView.delegate = self;
-    scrollView.delaysContentTouches=YES;
-    return scrollView;
-}
+//- (UIScrollView *)scrollView :(CGRect)frame :(CGSize)contentsize
+//{
+//    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:frame];
+//    scrollView.contentSize = contentsize;
+//    scrollView.directionalLockEnabled = YES;
+//    [self.view addSubview:scrollView];
+//    scrollView.delegate = self;
+//    scrollView.delaysContentTouches=YES;
+//    return scrollView;
+//}
 - (void)people:(id)sender{
     peopleViewController *nextController = [[peopleViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];

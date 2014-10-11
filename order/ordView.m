@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 黄晓彤. All rights reserved.
 //
 
-#import "orderView.h"
+#import "ordView.h"
 
 @implementation orderView
 
@@ -27,5 +27,4 @@
     // Drawing code
 }
 */
-
 @end

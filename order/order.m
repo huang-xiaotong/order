@@ -7,9 +7,9 @@
 //
 
 #import "order.h"
-#import "SecondViewController.h"
 
 @implementation order
+
 
 -(void)save:(NSString*)peopletext :(NSString*)restext :(NSString*)combotext :(NSString*)pricetext
 {

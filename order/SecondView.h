@@ -1,14 +1,14 @@
 //
-//  SecondViewController.h
+//  SecondView.h
 //  order
 //
-//  Created by xyooyy on 14-9-17.
+//  Created by xyooyy on 14-10-11.
 //  Copyright (c) 2014年 黄晓彤. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondView : UIView
 <UITableViewDelegate, UITableViewDataSource>
 {
     UIScrollView *m_scrollView;
@@ -16,7 +16,5 @@
     UILabel *m_labelresNull;
     UILabel *m_labelcomboNull;
     UILabel *m_labelpriceNull;
-//    NSString *m_path;
-    NSString *m_orderfile;
 }
 @end
