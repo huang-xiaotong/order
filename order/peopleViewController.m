@@ -8,7 +8,6 @@
 
 #import "peopleViewController.h"
 #import "SecondViewController.h"
-#import "ordView.h"
 @interface peopleViewController ()
 
 @end

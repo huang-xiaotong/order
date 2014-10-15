@@ -7,9 +7,13 @@
 //
 
 #import "SecondView.h"
+#import "SecondViewController.h"
 
 @implementation SecondView
-
+@synthesize m_labelcomboNull;
+@synthesize m_labelpeopleNull;
+@synthesize m_labelpriceNull;
+@synthesize m_labelresNull;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -18,28 +22,30 @@
     }
     return self;
 }
--(void) secondview
+-(void) secondview :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel
 {
-    m_scrollView = [self scrollView:CGRectMake(0, 0, 320, 460) :CGSizeMake( self.bounds.size.width, self.bounds.size.height * 1.2)];
-    [self createLabel:CGRectMake(15, 15, 30, 20) :16 :@"人:"];
-    [self createLabel:CGRectMake(15, 160, 40, 20) :16 :@"餐厅:"];
-    [self createLabel:CGRectMake(15, 310, 40, 20) :16 :@"套餐:"];
-    [self selectorderonegrouplabelnulldata:CGRectMake(20, 40, 280, 40) :16 :NULL :CGRectMake(20, 190, 280, 40) :CGRectMake(20, 340, 280, 40)];
-    [self selectorderonegroupbuttondata:CGRectMake(20, 90, 280, 50) :18 :@"选人" :CGRectMake(20, 240, 280, 50) :18 :@"选餐厅" :CGRectMake(20, 390, 280, 50) :18 :@"选套餐" :CGRectMake(20, 440, 280, 50) :18 :@"确定"];
-
+    m_scrollView = [self scrollView:frame :CGSizeMake( self.bounds.size.width, self.bounds.size.height * 1.2)];
+    [self createLabel:CGRectMake(LABEL_FRAME_X, 15, LABEL_WIDTH, LABEL_HEIGHT) :LABEL_FONTSIZE :@"人:"];
+    [self createLabel:CGRectMake(LABEL_FRAME_X, 160, LABEL_WIDTH, LABEL_HEIGHT) :LABEL_FONTSIZE :@"餐厅:"];
+    [self createLabel:CGRectMake(LABEL_FRAME_X, 310, LABEL_WIDTH, LABEL_HEIGHT) :LABEL_FONTSIZE :@"套餐:"];
+    [self selectorderonegrouplabelnulldata:CGRectMake(LABELNULLANDBUTTON_FRAME_X, 40, LABELNULLANDBUTTON_FRAME_WIDTH, LABELNULL_FRAME_HEIGHT) :LABEL_FONTSIZE :nil :CGRectMake(LABELNULLANDBUTTON_FRAME_X, 190, LABELNULLANDBUTTON_FRAME_WIDTH, LABELNULL_FRAME_HEIGHT) :CGRectMake(LABELNULLANDBUTTON_FRAME_X, 340, LABELNULLANDBUTTON_FRAME_WIDTH, LABELNULL_FRAME_HEIGHT)];
+    [self selectorderonegroupbuttondata:CGRectMake(LABELNULLANDBUTTON_FRAME_X, 90, LABELNULLANDBUTTON_FRAME_WIDTH, BUTTON_FRAME_HEIGHT) :18 :@"选人" :target :peoplesel :CGRectMake(LABELNULLANDBUTTON_FRAME_X, 240, LABELNULLANDBUTTON_FRAME_WIDTH, BUTTON_FRAME_HEIGHT) :@"选餐厅" :ressel :CGRectMake(LABELNULLANDBUTTON_FRAME_X, 390, LABELNULLANDBUTTON_FRAME_WIDTH, BUTTON_FRAME_HEIGHT) :@"选套餐" :combosel :CGRectMake(LABELNULLANDBUTTON_FRAME_X, 440, LABELNULLANDBUTTON_FRAME_WIDTH, BUTTON_FRAME_HEIGHT) :@"确定" :suresel];
 }
--(void) selectorderonegroupbuttondata:(CGRect)framepeoplebutton :(double)fontsizepeoplebutton :(NSString*)titlepeoplebutton :(CGRect)frameresbutton :(double)fontsizeresbutton :(NSString*)titleresbutton :(CGRect)framecombobutton :(double)fontsizecombobutton :(NSString*)titlecombobutton
-                                     :(CGRect)framesure :(double)fontsizesure :(NSString*)titlesure
+-(void) selectorderonegroupbuttondata:(CGRect)framepeoplebutton :(double)fontsizebutton :(NSString*)titlepeoplebutton :(id)target :(SEL)peoplesel :(CGRect)frameresbutton :(NSString*)titleresbutton :(SEL)ressel :(CGRect)framecombobutton :(NSString*)titlecombobutton :(SEL)combosel
+:(CGRect)framesure :(NSString*)titlesure :(SEL)suresel
 {
-    UIButton *peoplebutton = [self creatbutton:framepeoplebutton :fontsizepeoplebutton :titlepeoplebutton];
+    peoplebutton = [self creatbutton:framepeoplebutton :fontsizebutton :titlepeoplebutton];
     [m_scrollView addSubview:peoplebutton];
-    UIButton *resbutton = [self creatbutton:frameresbutton :fontsizeresbutton :titleresbutton];
+    [peoplebutton addTarget:target action:peoplesel forControlEvents:UIControlEventTouchUpInside];
+    resbutton = [self creatbutton:frameresbutton :fontsizebutton :titleresbutton];
     [m_scrollView addSubview:resbutton];
-    UIButton *combobutton = [self creatbutton:framecombobutton :fontsizecombobutton :titlecombobutton];
+    [resbutton addTarget:target action:ressel forControlEvents:UIControlEventTouchUpInside];
+    combobutton = [self creatbutton:framecombobutton :fontsizebutton :titlecombobutton];
     [m_scrollView addSubview:combobutton];
-    UIButton *sure = [self creatbutton:framesure :fontsizesure :titlesure];
+    [combobutton addTarget:target action:combosel forControlEvents:UIControlEventTouchUpInside];
+    sure = [self creatbutton:framesure :fontsizebutton :titlesure];
     [m_scrollView addSubview:sure];
-    
+    [sure addTarget:target action:suresel forControlEvents:UIControlEventTouchUpInside];
 }
 -(void) selectorderonegrouplabelnulldata:(CGRect)firstlabelnull :(double)labelnullfontsize :(NSString*)labelnulltitle :(CGRect)secondlabelnull :(CGRect)thirdlabelnull
 {
@@ -49,10 +55,11 @@
     m_labelresNull = [self createLabel:secondlabelnull :labelnullfontsize :labelnulltitle];
     [m_scrollView addSubview:m_labelresNull];
     m_labelresNull.backgroundColor = [UIColor lightGrayColor];
+    m_labelpriceNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
     m_labelcomboNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
     [m_scrollView addSubview: m_labelcomboNull];
     m_labelcomboNull.backgroundColor = [UIColor lightGrayColor];
-    m_labelpriceNull = [self createLabel:thirdlabelnull :labelnullfontsize :labelnulltitle];
+    
 }
 - (UILabel *)createLabel:(CGRect)frame :(double)fontSize :(NSString *)title
 {
@@ -78,17 +85,8 @@
     scrollView.contentSize = contentsize;
     scrollView.directionalLockEnabled = YES;
     [self addSubview:scrollView];
-    scrollView.delegate = self;
     scrollView.delaysContentTouches=YES;
     return scrollView;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

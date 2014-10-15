@@ -7,16 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SecondView.h"
+#import "DefineHeader.h"
 
 @interface SecondViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource>
 {
-    UIScrollView *m_scrollView;
-    UILabel *m_labelpeopleNull;
-    UILabel *m_labelresNull;
-    UILabel *m_labelcomboNull;
-    UILabel *m_labelpriceNull;
-//    NSString *m_path;
+    NSString *m_path;
     NSString *m_orderfile;
+    SecondView *mSecond;
 }
 @end

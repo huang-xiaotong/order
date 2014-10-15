@@ -7,14 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DefineHeader.h"
 
 @interface SecondView : UIView
-<UITableViewDelegate, UITableViewDataSource>
 {
     UIScrollView *m_scrollView;
     UILabel *m_labelpeopleNull;
     UILabel *m_labelresNull;
     UILabel *m_labelcomboNull;
     UILabel *m_labelpriceNull;
+    UIButton *peoplebutton;
+    UIButton *resbutton;
+    UIButton *combobutton;
+    UIButton *sure;
 }
+@property(nonatomic,retain)UILabel *m_labelpeopleNull;
+@property(nonatomic,retain)UILabel *m_labelresNull;
+@property(nonatomic,retain)UILabel *m_labelcomboNull;
+@property(nonatomic,retain)UILabel *m_labelpriceNull;
+-(void) secondview :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel;
 @end
