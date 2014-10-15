@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A08AFCA19EE6A960062DC90 /* ordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08AFC919EE6A960062DC90 /* ordViewController.m */; };
-		9A16557019E6651B003D7702 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16556F19E6651B003D7702 /* SecondViewController.m */; };
+		9A08AFCA19EE6A960062DC90 /* orderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08AFC919EE6A960062DC90 /* orderViewController.m */; };
+		9A16557019E6651B003D7702 /* SelectOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16556F19E6651B003D7702 /* SelectOrderViewController.m */; };
 		9A16557D19E68231003D7702 /* order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16557C19E68231003D7702 /* order.m */; };
 		9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E519CACC2100B24786 /* peopleViewController.m */; };
 		9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1E819CAD3F700B24786 /* resViewController.m */; };
 		9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A48F1EB19CAD59000B24786 /* comboViewController.m */; };
-		9A70773D19E8D9430071190D /* SecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A70773C19E8D9430071190D /* SecondView.m */; };
+		9A70773D19E8D9430071190D /* SelectOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A70773C19E8D9430071190D /* SelectOrderView.m */; };
 		9A97A18419C9B3050028A373 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18319C9B3050028A373 /* UIKit.framework */; };
 		9A97A18619C9B3050028A373 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18519C9B3050028A373 /* Foundation.framework */; };
 		9A97A18819C9B3050028A373 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A97A18719C9B3050028A373 /* CoreGraphics.framework */; };
@@ -24,13 +24,13 @@
 		9A97A19819C9B3050028A373 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A97A19719C9B3050028A373 /* Default@2x.png */; };
 		9A97A19A19C9B3050028A373 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A97A19919C9B3050028A373 /* Default-568h@2x.png */; };
 		9A97A19D19C9B3050028A373 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A97A19B19C9B3050028A373 /* MainStoryboard.storyboard */; };
-		9A97A1A019C9B3050028A373 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A19F19C9B3050028A373 /* ViewController.m */; };
+		9A97A1A019C9B3050028A373 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A97A19F19C9B3050028A373 /* homeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A08AFC919EE6A960062DC90 /* ordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ordViewController.m; sourceTree = "<group>"; };
+		9A08AFC919EE6A960062DC90 /* orderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderViewController.m; sourceTree = "<group>"; };
 		9A08AFCB19EE6E160062DC90 /* DefineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefineHeader.h; sourceTree = "<group>"; };
-		9A16556F19E6651B003D7702 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		9A16556F19E6651B003D7702 /* SelectOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOrderViewController.m; sourceTree = "<group>"; };
 		9A16557B19E6820A003D7702 /* order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = order.h; sourceTree = "<group>"; };
 		9A16557C19E68231003D7702 /* order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = order.m; sourceTree = "<group>"; };
 		9A48F1E419CACC2100B24786 /* peopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = peopleViewController.h; sourceTree = "<group>"; };
@@ -39,9 +39,9 @@
 		9A48F1E819CAD3F700B24786 /* resViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = resViewController.m; sourceTree = "<group>"; };
 		9A48F1EA19CAD59000B24786 /* comboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comboViewController.h; sourceTree = "<group>"; };
 		9A48F1EB19CAD59000B24786 /* comboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comboViewController.m; sourceTree = "<group>"; };
-		9A48F1ED19CAE07B00B24786 /* ordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ordViewController.h; sourceTree = "<group>"; };
-		9A70773B19E8D9430071190D /* SecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondView.h; path = order/SecondView.h; sourceTree = "<group>"; };
-		9A70773C19E8D9430071190D /* SecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondView.m; path = order/SecondView.m; sourceTree = "<group>"; };
+		9A48F1ED19CAE07B00B24786 /* orderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderViewController.h; sourceTree = "<group>"; };
+		9A70773B19E8D9430071190D /* SelectOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectOrderView.h; path = order/SelectOrderView.h; sourceTree = "<group>"; };
+		9A70773C19E8D9430071190D /* SelectOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectOrderView.m; path = order/SelectOrderView.m; sourceTree = "<group>"; };
 		9A97A18019C9B3050028A373 /* order.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = order.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A97A18319C9B3050028A373 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A97A18519C9B3050028A373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,9 +56,9 @@
 		9A97A19719C9B3050028A373 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9A97A19919C9B3050028A373 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9A97A19C19C9B3050028A373 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9A97A19E19C9B3050028A373 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9A97A19F19C9B3050028A373 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9A97A1A619C9D0C30028A373 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		9A97A19E19C9B3050028A373 /* homeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
+		9A97A19F19C9B3050028A373 /* homeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
+		9A97A1A619C9D0C30028A373 /* SelectOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOrderViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +78,8 @@
 		9A16557819E680D0003D7702 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				9A70773B19E8D9430071190D /* SecondView.h */,
-				9A70773C19E8D9430071190D /* SecondView.m */,
+				9A70773B19E8D9430071190D /* SelectOrderView.h */,
+				9A70773C19E8D9430071190D /* SelectOrderView.m */,
 			);
 			name = view;
 			path = ..;
@@ -97,18 +97,18 @@
 		9A16557F19E68280003D7702 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				9A97A19E19C9B3050028A373 /* ViewController.h */,
-				9A97A19F19C9B3050028A373 /* ViewController.m */,
-				9A97A1A619C9D0C30028A373 /* SecondViewController.h */,
-				9A16556F19E6651B003D7702 /* SecondViewController.m */,
+				9A97A19E19C9B3050028A373 /* homeViewController.h */,
+				9A97A19F19C9B3050028A373 /* homeViewController.m */,
+				9A97A1A619C9D0C30028A373 /* SelectOrderViewController.h */,
+				9A16556F19E6651B003D7702 /* SelectOrderViewController.m */,
 				9A48F1E419CACC2100B24786 /* peopleViewController.h */,
 				9A48F1E519CACC2100B24786 /* peopleViewController.m */,
 				9A48F1E719CAD3F700B24786 /* resViewController.h */,
 				9A48F1E819CAD3F700B24786 /* resViewController.m */,
 				9A48F1EA19CAD59000B24786 /* comboViewController.h */,
 				9A48F1EB19CAD59000B24786 /* comboViewController.m */,
-				9A48F1ED19CAE07B00B24786 /* ordViewController.h */,
-				9A08AFC919EE6A960062DC90 /* ordViewController.m */,
+				9A48F1ED19CAE07B00B24786 /* orderViewController.h */,
+				9A08AFC919EE6A960062DC90 /* orderViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -237,14 +237,14 @@
 			files = (
 				9A97A19019C9B3050028A373 /* main.m in Sources */,
 				9A97A19419C9B3050028A373 /* AppDelegate.m in Sources */,
-				9A97A1A019C9B3050028A373 /* ViewController.m in Sources */,
+				9A97A1A019C9B3050028A373 /* homeViewController.m in Sources */,
 				9A48F1E619CACC2100B24786 /* peopleViewController.m in Sources */,
 				9A48F1E919CAD3F700B24786 /* resViewController.m in Sources */,
 				9A48F1EC19CAD59000B24786 /* comboViewController.m in Sources */,
-				9A16557019E6651B003D7702 /* SecondViewController.m in Sources */,
+				9A16557019E6651B003D7702 /* SelectOrderViewController.m in Sources */,
 				9A16557D19E68231003D7702 /* order.m in Sources */,
-				9A70773D19E8D9430071190D /* SecondView.m in Sources */,
-				9A08AFCA19EE6A960062DC90 /* ordViewController.m in Sources */,
+				9A70773D19E8D9430071190D /* SelectOrderView.m in Sources */,
+				9A08AFCA19EE6A960062DC90 /* orderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

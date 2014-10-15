@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ordViewController : UIViewController
+@interface orderViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource>
 {
     UILabel *m_labelres;

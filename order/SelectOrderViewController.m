@@ -6,18 +6,18 @@
 //  Copyright (c) 2014年 黄晓彤. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "SelectOrderViewController.h"
 #import "peopleViewController.h"
 #import "resViewController.h"
 #import "comboViewController.h"
-#import "ordViewController.h"
-#import "ViewController.h"
+#import "orderViewController.h"
+#import "homeViewController.h"
 #import "order.h"
-#import "SecondView.h"
-@interface SecondViewController ()
+#import "SelectOrderView.h"
+@interface SelectOrderViewController ()
 
 @end
-@implementation SecondViewController
+@implementation SelectOrderViewController
 
 - (void)viewDidLoad
 {
@@ -25,8 +25,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订餐";
-    mSecond = [[SecondView alloc]initWithFrame:self.view.bounds];
-    [mSecond secondview:CGRectMake(0, 0, 320, 460) :self :@selector(selectpeoplepress:) :@selector(selectrespress:) :@selector(selectcombopress:) :@selector(sure:)];
+    mSecond = [[SelectOrderView alloc]initWithFrame:self.view.bounds];
+    [mSecond selectorder:CGRectMake(0, 0, 320, 460) :self :@selector(selectpeoplepress:) :@selector(selectrespress:) :@selector(selectcombopress:) :@selector(sure:)];
     [self.view addSubview:mSecond];
     [self notification:@selector(peoHandleInfo:) :@"peoInfo" :@selector(resHandleInfo:) :@"resInfo" :@selector(comHandleInfo:) :@"comInfo" :@selector(priceHandleInfo:) :@"priceInfo"];
 }

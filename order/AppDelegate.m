@@ -7,14 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "homeViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-//    
-    ViewController *viewController = [[ViewController alloc]init];
+{    
+    homeViewController *viewController = [[homeViewController alloc]init];
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController = navigationController;
    

@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SecondView.h"
+#import "SelectOrderView.h"
 #import "DefineHeader.h"
 
-@interface SecondViewController : UIViewController
+@interface SelectOrderViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource>
 {
     NSString *m_path;
     NSString *m_orderfile;
-    SecondView *mSecond;
+    SelectOrderView *mSecond;
 }
 @end

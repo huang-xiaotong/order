@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DefineHeader.h"
 
-@interface SecondView : UIView
+@interface SelectOrderView : UIView
 {
     UIScrollView *m_scrollView;
     UILabel *m_labelpeopleNull;
@@ -25,5 +25,5 @@
 @property(nonatomic,retain)UILabel *m_labelresNull;
 @property(nonatomic,retain)UILabel *m_labelcomboNull;
 @property(nonatomic,retain)UILabel *m_labelpriceNull;
--(void) secondview :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel;
+-(void) selectorder :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel;
 @end

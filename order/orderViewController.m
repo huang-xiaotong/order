@@ -5,14 +5,13 @@
 //  Created by xyooyy on 14-9-18.
 //  Copyright (c) 2014年 黄晓彤. All rights reserved.
 //
-#import "ordViewController.h"
-#import "peopleViewController.h"
+#import "orderViewController.h"
 
-@interface ordViewController ()
+@interface orderViewController ()
 
 @end
 
-@implementation ordViewController
+@implementation orderViewController
 
 - (void)viewDidLoad
 {

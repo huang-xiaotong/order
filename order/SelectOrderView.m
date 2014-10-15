@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 黄晓彤. All rights reserved.
 //
 
-#import "SecondView.h"
-#import "SecondViewController.h"
+#import "SelectOrderView.h"
+#import "SelectOrderViewController.h"
 
-@implementation SecondView
+@implementation SelectOrderView
 @synthesize m_labelcomboNull;
 @synthesize m_labelpeopleNull;
 @synthesize m_labelpriceNull;
@@ -22,7 +22,7 @@
     }
     return self;
 }
--(void) secondview :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel
+-(void) selectorder :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel
 {
     m_scrollView = [self scrollView:frame :CGSizeMake( self.bounds.size.width, self.bounds.size.height * 1.2)];
     [self createLabel:CGRectMake(LABEL_FRAME_X, 15, LABEL_WIDTH, LABEL_HEIGHT) :LABEL_FONTSIZE :@"人:"];

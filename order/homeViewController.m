@@ -6,15 +6,15 @@
 //  Copyright (c) 2014年 黄晓彤. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "SecondViewController.h"
-#import "ordViewController.h"
+#import "homeViewController.h"
+#import "SelectOrderViewController.h"
+#import "orderViewController.h"
 
-@interface ViewController ()
+@interface homeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation homeViewController
 
 
 - (void)viewDidLoad
@@ -54,11 +54,11 @@
 - (void)onClick:(id)sender{
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:@selector(back)];
     [self.navigationItem setBackBarButtonItem:backItem];
-    SecondViewController *nextController = [[SecondViewController alloc]init];
+    SelectOrderViewController *nextController = [[SelectOrderViewController alloc]init];
     [self.navigationController pushViewController:nextController animated:YES];
   }
 - (void)Click:(id)sender{
-    ordViewController *nextController = [[ordViewController alloc]init];
+    orderViewController *nextController = [[orderViewController alloc]init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backItem];
     [self.navigationController pushViewController:nextController animated:YES];

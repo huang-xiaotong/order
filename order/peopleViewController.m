@@ -7,7 +7,7 @@
 //
 
 #import "peopleViewController.h"
-#import "SecondViewController.h"
+#import "SelectOrderViewController.h"
 @interface peopleViewController ()
 
 @end
