@@ -26,7 +26,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"订餐";
     mSecond = [[SelectOrderView alloc]initWithFrame:self.view.bounds];
-    [mSecond selectorder:CGRectMake(0, 0, 320, 460) :self :@selector(selectpeoplepress:) :@selector(selectrespress:) :@selector(selectcombopress:) :@selector(sure:)];
+    mSecond.backgroundColor = [UIColor redColor];
+    [mSecond selectorder :self :@selector(selectpeoplepress:) :@selector(selectrespress:) :@selector(selectcombopress:) :@selector(sure:)];
     [self.view addSubview:mSecond];
     [self notification:@selector(peoHandleInfo:) :@"peoInfo" :@selector(resHandleInfo:) :@"resInfo" :@selector(comHandleInfo:) :@"comInfo" :@selector(priceHandleInfo:) :@"priceInfo"];
 }

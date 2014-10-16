@@ -27,7 +27,7 @@
 }
 -(void)datatable
 {
-    UITableView *DataTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)];
+    UITableView *DataTable = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [DataTable setDelegate:self];
     [DataTable setDataSource:self];
     [self.view addSubview:DataTable];

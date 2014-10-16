@@ -13,8 +13,8 @@
 @end
 
 @implementation comboViewController
-@synthesize m_listData;
-@synthesize m_listDatap;
+@synthesize listDatacomboname;
+@synthesize listDatacomboprice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    m_TableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, 320, 300)];
+    m_TableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:m_TableView];
     m_TableView.delegate = self;
     m_TableView.dataSource = self;
@@ -38,9 +38,9 @@
 -(void)array
 {
     NSArray *arrayn = [[NSArray alloc]initWithObjects:@"田园脆鸡堡",@"黄金咖喱猪排饭",@"意式肉酱肉丸饭",@"老北京鸡肉卷",@"劲脆鸡腿堡", nil];//创建数组
-    self.m_listData = arrayn;
+    self.listDatacomboname = arrayn;
     NSArray *arrayp = [[NSArray alloc]initWithObjects:@"￥10.00", @"￥23.50", @"￥16.00", @"￥14.00", @"￥15.00", nil];
-    self.m_listDatap = arrayp;
+    self.listDatacomboprice = arrayp;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -56,7 +56,7 @@
 #pragma mark -
 #pragma mark Table View Data Soure Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.m_listData count];
+    return [self.listDatacomboname count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cell";
@@ -66,9 +66,9 @@
     }
     
     NSUInteger row = [indexPath row];
-    cell.textLabel.text = [m_listData objectAtIndex:row];
+    cell.textLabel.text = [listDatacomboname objectAtIndex:row];
     cell.textLabel.textColor = [UIColor blueColor];
-    cell.detailTextLabel.text = [m_listDatap objectAtIndex:row];
+    cell.detailTextLabel.text = [listDatacomboprice objectAtIndex:row];
     cell.detailTextLabel.textColor = [UIColor blackColor];
     
     return cell;
@@ -76,8 +76,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center postNotificationName:@"comInfo" object:[m_listData objectAtIndex:row]];
-    [center postNotificationName:@"priceInfo" object:[m_listDatap objectAtIndex:row]];
+    [center postNotificationName:@"comInfo" object:[listDatacomboname objectAtIndex:row]];
+    [center postNotificationName:@"priceInfo" object:[listDatacomboprice objectAtIndex:row]];
     [self.navigationController popViewControllerAnimated:YES];
     
 }

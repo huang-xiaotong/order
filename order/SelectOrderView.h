@@ -25,5 +25,5 @@
 @property(nonatomic,retain)UILabel *m_labelresNull;
 @property(nonatomic,retain)UILabel *m_labelcomboNull;
 @property(nonatomic,retain)UILabel *m_labelpriceNull;
--(void) selectorder :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel;
+-(void) selectorder :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel;
 @end

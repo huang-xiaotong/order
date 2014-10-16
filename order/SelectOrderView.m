@@ -22,9 +22,10 @@
     }
     return self;
 }
--(void) selectorder :(CGRect)frame :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel
+-(void) selectorder :(id)target :(SEL)peoplesel :(SEL)ressel :(SEL)combosel :(SEL)suresel
 {
-    m_scrollView = [self scrollView:frame :CGSizeMake( self.bounds.size.width, self.bounds.size.height * 1.2)];
+    m_scrollView = [self scrollView:self.frame:CGSizeMake(self.frame.size.width, self.frame.size.height)];
+    [self addSubview:m_scrollView];
     [self createLabel:CGRectMake(LABEL_FRAME_X, 15, LABEL_WIDTH, LABEL_HEIGHT) :LABEL_FONTSIZE :@"人:"];
     [self createLabel:CGRectMake(LABEL_FRAME_X, 160, LABEL_WIDTH, LABEL_HEIGHT) :LABEL_FONTSIZE :@"餐厅:"];
     [self createLabel:CGRectMake(LABEL_FRAME_X, 310, LABEL_WIDTH, LABEL_HEIGHT) :LABEL_FONTSIZE :@"套餐:"];

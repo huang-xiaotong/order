@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    m_pTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, 320, 360)];
+    m_pTableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:m_pTableView];
     m_pTableView.delegate = self;
     m_pTableView.dataSource = self;

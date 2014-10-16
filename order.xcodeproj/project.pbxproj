@@ -329,6 +329,7 @@
 		9A97A1A419C9B3050028A373 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: XingHua Feng (R434NC65D7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "order/order-Prefix.pch";
 				INFOPLIST_FILE = "order/order-Info.plist";
@@ -340,6 +341,7 @@
 		9A97A1A519C9B3050028A373 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: XingHua Feng (R434NC65D7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "order/order-Prefix.pch";
 				INFOPLIST_FILE = "order/order-Info.plist";

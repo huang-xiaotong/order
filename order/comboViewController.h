@@ -12,9 +12,7 @@
 <UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *m_TableView;
-    NSArray *m_listData;
-    NSArray *m_listDatap;
 }
-@property (nonatomic, retain) NSArray *m_listData;
-@property (nonatomic, retain) NSArray *m_listDatap;
+@property (nonatomic, retain) NSArray *listDatacomboname;
+@property (nonatomic, retain) NSArray *listDatacomboprice;
 @end

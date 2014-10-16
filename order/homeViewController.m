@@ -28,10 +28,10 @@
 }
 -(void)button
 {
-    UIButton *order = [self creatbutton:CGRectMake(10, 10, 300, 50):18:@"帮订餐"];
+    UIButton *order = [self creatbutton:CGRectMake(10, 70, 300, 50):18:@"帮订餐"];
     [self.view addSubview:order];
     [order addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIButton *lookorder = [self creatbutton:CGRectMake(10, 60, 300, 50):18:@"看订单"];
+    UIButton *lookorder = [self creatbutton:CGRectMake(10, 120, 300, 50):18:@"看订单"];
     [self.view addSubview:lookorder];
     [lookorder addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
 }

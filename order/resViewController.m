@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-       m_rTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, 320, 180)];
+       m_rTableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:m_rTableView];
     m_rTableView.delegate = self;
     m_rTableView.dataSource = self;
